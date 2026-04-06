@@ -4,6 +4,8 @@
 
 The project ingests the complete historical archive of NYT Connections puzzles, mines their linguistic patterns using sentence embeddings and a trained difficulty classifier, and generates novel puzzles that replicate the game's signature mechanics: four color-coded difficulty tiers, compound-word fill-in-the-blank groups, homophone and wordplay categories, semantic red herrings, and strict cross-puzzle deduplication. A FastAPI backend handles generation, storage, and guess validation. A self-contained HTML/CSS/JS frontend delivers the full NYT gameplay experience including sound effects, animations, a live timer, share-result emoji grid, and a How to Play modal.
 
+### Web Link: https://nyt-connections-puzzle-generator.onrender.com
+
 ---
 
 ## Table of Contents
