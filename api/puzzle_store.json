@@ -120,7 +120,7 @@
         "theme": "WAYS TO VOCALIZE MUSICALLY PLUS A LETTER",
         "members": [
           "HUMP",
-          "RAP",
+          "WRAP",
           "SINGE",
           "WHISTLER"
         ],
@@ -148,7 +148,7 @@
         "theme": "___ BIRD",
         "members": [
           "BIG",
-          "LATER",
+          "LARRY",
           "LADY",
           "SUE"
         ],
@@ -160,7 +160,7 @@
       "WHISTLER",
       "GENRE",
       "LADY",
-      "RAP",
+      "WRAP",
       "SINGE",
       "SIDE",
       "HEADER",
@@ -170,7 +170,7 @@
       "SUE",
       "HUMP",
       "BANNER",
-      "LATER",
+      "LARRY",
       "PLOT",
       "BIG"
     ],
@@ -204,7 +204,7 @@
         "members": [
           "COVER",
           "JACKET",
-          "LEAVENING",
+          "HEAD",
           "SPINE"
         ],
         "theme_type": "descriptor",
@@ -216,7 +216,7 @@
         "hex": "#A0C35A",
         "theme": "COLORS MINUS LAST LETTER",
         "members": [
-          "EYEBROW",
+          "BROW",
           "CYA",
           "PIN",
           "WHIT"
@@ -231,7 +231,7 @@
         "theme": "PARTS OF FRUIT YOU MIGHT NOT EAT",
         "members": [
           "CORE",
-          "RIVET",
+          "RINDS",
           "SEED",
           "STEM"
         ],
@@ -244,7 +244,7 @@
         "hex": "#BA81C5",
         "theme": "ROCK ___",
         "members": [
-          "TOP",
+          "CANDY",
           "LOBSTER",
           "MUSIC",
           "SALT"
@@ -258,12 +258,12 @@
       "CYA",
       "LOBSTER",
       "JACKET",
-      "TOP",
-      "LEAVENING",
+      "CANDY",
+      "HEAD",
       "PIN",
-      "RIVET",
+      "RINDS",
       "WHIT",
-      "EYEBROW",
+      "BROW",
       "SEED",
       "MUSIC",
       "STEM",
@@ -494,7 +494,7 @@
         "theme": "ENERGY FOR AN ELECTRONIC DEVICE",
         "members": [
           "BATTERY",
-          "CHARGING CABLE",
+          "CHARGE",
           "JUICE",
           "POWER"
         ],
@@ -551,7 +551,7 @@
       "TACKLE",
       "TIP",
       "BATTERY",
-      "CHARGING CABLE",
+      "CHARGE",
       "BROWN",
       "BLOCK",
       "SIGNATURE",
@@ -690,7 +690,7 @@
           "CAW",
           "CHIRP",
           "CLUCK",
-          "TWEEZE"
+          "TWEET"
         ],
         "theme_type": "category",
         "coherence": 0.2517
@@ -753,7 +753,7 @@
       "COTTAGE",
       "CREAM",
       "GOAT",
-      "TWEEZE",
+      "TWEET",
       "BARS"
     ],
     "red_herrings": [],
@@ -838,7 +838,7 @@
     "words_shuffled": [
       "CARGO",
       "DESIGNATION",
-      "COMIC CON",
+      "COMIC",
       "ROOT",
       "LEAF",
       "HAND",
@@ -897,7 +897,7 @@
         "members": [
           "FRET",
           "PEG",
-          "TRUCK",
+          "TRUNK",
           "STRING"
         ],
         "theme_type": "descriptor",
@@ -911,7 +911,7 @@
         "members": [
           "CRAY",
           "JELLY",
-          "SILVER BULLET",
+          "SILVER",
           "STAR"
         ],
         "theme_type": "fill_prefix",
@@ -933,7 +933,7 @@
       }
     ],
     "words_shuffled": [
-      "SILVER BULLET",
+      "SILVER",
       "ARROW",
       "BOW",
       "POLE",
@@ -946,7 +946,7 @@
       "FRET",
       "NET",
       "WING",
-      "TRUCK",
+      "TRUNK",
       "RIM",
       "DIAPER"
     ],
@@ -1023,7 +1023,7 @@
           "MAGIC",
           "MOTOR",
           "SIN",
-          "WIND"
+          "WINDY"
         ],
         "theme_type": "fill_prefix",
         "coherence": 0.3473
@@ -1045,7 +1045,7 @@
       "CHORUS",
       "PETAL",
       "PULP",
-      "WIND"
+      "WINDY"
     ],
     "red_herrings": [],
     "meta": {
@@ -1076,7 +1076,7 @@
         "theme": "SILVER ___",
         "members": [
           "FOX",
-          "LINER",
+          "LINING",
           "SCREEN",
           "SPOON"
         ],
@@ -1117,7 +1117,7 @@
         "hex": "#BA81C5",
         "theme": "___ FOOD",
         "members": [
-          "FASTER",
+          "FAST",
           "FINGER",
           "JUNK",
           "SOUL"
@@ -1136,12 +1136,12 @@
       "STAND",
       "SALUTE",
       "CLEATS",
-      "FASTER",
+      "FAST",
       "SOUL",
       "FINGER",
       "KNEE",
       "PAD",
-      "LINER",
+      "LINING",
       "JERSEY"
     ],
     "red_herrings": [],
@@ -1172,8 +1172,8 @@
         "hex": "#F9DF6D",
         "theme": "COPY___",
         "members": [
-          "CATS",
-          "PASTA",
+          "CAT",
+          "STRIKE",
           "RIGHT",
           "WRITER"
         ],
@@ -1188,8 +1188,8 @@
         "members": [
           "BALL",
           "OUT",
-          "SAFETY",
-          "STRIKE"
+          "SAFE",
+          "HIT"
         ],
         "theme_type": "category",
         "coherence": 0.2957
@@ -1217,7 +1217,7 @@
           "BURGER",
           "CALIFORNIA",
           "LION",
-          "SCHOOL"
+          "PROM"
         ],
         "theme_type": "fill_prefix",
         "coherence": 0.3404
@@ -1225,18 +1225,18 @@
     ],
     "words_shuffled": [
       "WRITER",
-      "CATS",
+      "CAT",
       "CALIFORNIA",
-      "STRIKE",
+      "HIT",
       "FLIGHT",
-      "SAFETY",
+      "SAFE",
       "BURGER",
       "RIGHT",
       "BALL",
       "CARS",
       "PASTA",
       "HOTEL",
-      "SCHOOL",
+      "PROM",
       "TOUR",
       "LION",
       "OUT"
@@ -1395,7 +1395,7 @@
         "theme": "KINDS OF JEWELRY",
         "members": [
           "BANGLE",
-          "CHAINZ",
+          "CHAIN",
           "CHARM",
           "RING"
         ],
@@ -1421,7 +1421,7 @@
       "CHARM",
       "BANGLE",
       "RING",
-      "CHAINZ",
+      "CHAIN",
       "HORN",
       "DOZE",
       "WOLF",
@@ -1552,103 +1552,6 @@
     }
   },
   {
-    "id": "gen-41877d1b",
-    "groups": [
-      {
-        "level": 0,
-        "color": "yellow",
-        "hex": "#F9DF6D",
-        "theme": "MEMBER OF A DALLAS PRO SPORTS TEAM",
-        "members": [
-          "COWBOY",
-          "MAMBA",
-          "STARS",
-          "WINGS"
-        ],
-        "theme_type": "category",
-        "coherence": 0.2854
-      },
-      {
-        "level": 1,
-        "color": "green",
-        "hex": "#A0C35A",
-        "theme": "SHAPES OF CAPITAL GREEK LETTERS",
-        "members": [
-          "CIRCLE",
-          "HORSESHOE",
-          "TORCH",
-          "TRIANGLE"
-        ],
-        "theme_type": "category",
-        "coherence": 0.3344
-      },
-      {
-        "level": 2,
-        "color": "blue",
-        "hex": "#B0C4EF",
-        "theme": "WAYS TO GATHER FOOD",
-        "members": [
-          "FISH",
-          "FORAGE",
-          "HUNT",
-          "MOUSE TRAP"
-        ],
-        "theme_type": "descriptor",
-        "coherence": 0.2852
-      },
-      {
-        "level": 3,
-        "color": "purple",
-        "hex": "#BA81C5",
-        "theme": "SEA ___",
-        "members": [
-          "CHANGE",
-          "CUCUMBER",
-          "LEG",
-          "LION"
-        ],
-        "theme_type": "fill_suffix",
-        "coherence": 0.2451
-      }
-    ],
-    "words_shuffled": [
-      "WINGS",
-      "TRIANGLE",
-      "COWBOY",
-      "LEG",
-      "CUCUMBER",
-      "LION",
-      "FISH",
-      "STARS",
-      "MAMBA",
-      "MOUSE TRAP",
-      "HUNT",
-      "TORCH",
-      "CHANGE",
-      "HORSESHOE",
-      "FORAGE",
-      "CIRCLE"
-    ],
-    "red_herrings": [],
-    "meta": {
-      "combos_evaluated": 15,
-      "assembly_score": 35.8389,
-      "pool_size": 6,
-      "theme_types": [
-        "category",
-        "descriptor",
-        "fill_suffix",
-        "category"
-      ],
-      "coherences": [
-        0.2854,
-        0.2852,
-        0.2451,
-        0.3344
-      ]
-    }
-  },
-  {
     "id": "gen-aa2b2d97",
     "groups": [
       {
@@ -1769,7 +1672,7 @@
         "theme": "ELECTRIC ___",
         "members": [
           "BLANKET",
-          "WOLF EEL",
+          "EEL",
           "GUITAR",
           "SLIDE"
         ],
@@ -1785,7 +1688,7 @@
           "BISCUIT",
           "CORN",
           "LINCOLN",
-          "STAIN"
+          "STAINED"
         ],
         "theme_type": "descriptor",
         "coherence": 0.2525
@@ -1807,12 +1710,12 @@
     ],
     "words_shuffled": [
       "TRADEMARK",
-      "STAIN",
+      "STAINED",
       "BISCUIT",
       "SLIDE",
       "COLLECTION",
       "HARVEST",
-      "WOLF EEL",
+      "EEL",
       "LABEL",
       "CORN",
       "BLANKET",
@@ -1854,7 +1757,7 @@
           "BOAT",
           "BREAD",
           "SLUG",
-          "SEPARATE"
+          "SPLIT"
         ],
         "theme_type": "fill_suffix",
         "coherence": 0.2924
@@ -1868,7 +1771,7 @@
           "JAM",
           "NOODLE",
           "SHRED",
-          "SOLO CUP"
+          "SOLO"
         ],
         "theme_type": "category",
         "coherence": 0.2423
@@ -1880,7 +1783,7 @@
         "theme": "WAYS TO GET FOOD",
         "members": [
           "FARM",
-          "FISH TANK",
+          "FISH",
           "GATHER",
           "HUNT"
         ],
@@ -1905,17 +1808,17 @@
     "words_shuffled": [
       "LOVER",
       "CHAIN",
-      "SOLO CUP",
+      "SOLO",
       "FARM",
       "GATHER",
-      "FISH TANK",
+      "FISH",
       "JAM",
       "SCARLET",
       "COVER",
       "BREAD",
       "SLUG",
       "HUNT",
-      "SEPARATE",
+      "SPLIT",
       "BOAT",
       "SHRED",
       "NOODLE"
@@ -1948,7 +1851,7 @@
         "hex": "#F9DF6D",
         "theme": "RESTAURANT WORKERS",
         "members": [
-          "BAR",
+          "BARISTA",
           "CHEF",
           "HOST",
           "SERVER"
@@ -1963,7 +1866,7 @@
         "theme": "CARE FOR A PLANT",
         "members": [
           "FERTILIZE",
-          "CANNABIS",
+          "LIGHT",
           "PRUNE",
           "WATER"
         ],
@@ -1976,7 +1879,7 @@
         "hex": "#B0C4EF",
         "theme": "KINDS OF CHAIN REACTION \"EFFECTS\"",
         "members": [
-          "MONARCH BUTTERFLY",
+          "BUTTERFLY",
           "DOMINO",
           "RIPPLE",
           "SNOWBALL"
@@ -1990,7 +1893,7 @@
         "hex": "#BA81C5",
         "theme": "___ BAND",
         "members": [
-          "BOYS",
+          "BOY",
           "RUBBER",
           "TRIBUTE",
           "WEDDING"
@@ -2005,15 +1908,15 @@
       "RUBBER",
       "FERTILIZE",
       "CHEF",
-      "BAR",
+      "BARISTA",
       "RIPPLE",
       "SERVER",
       "WEDDING",
-      "MONARCH BUTTERFLY",
+      "BUTTERFLY",
       "SNOWBALL",
-      "BOYS",
+      "BOY",
       "HOST",
-      "CANNABIS",
+      "LIGHT",
       "WATER",
       "TRIBUTE"
     ],
@@ -2062,7 +1965,7 @@
           "POTATO",
           "SIXTEEN",
           "TALK",
-          "TEETH"
+          "TOOTH"
         ],
         "theme_type": "fill_suffix",
         "coherence": 0.2815
@@ -2074,7 +1977,7 @@
         "theme": "WAYS TO PREPARE CHEESE",
         "members": [
           "CRUMBLE",
-          "MELTING",
+          "MELT",
           "SHRED",
           "SLICE"
         ],
@@ -2090,7 +1993,7 @@
           "BALLOON",
           "PACK",
           "PARTY",
-          "STUFFING"
+          "STUFFED"
         ],
         "theme_type": "fill_prefix",
         "coherence": 0.3667
@@ -2098,10 +2001,10 @@
     ],
     "words_shuffled": [
       "PARTY",
-      "TEETH",
+      "TOOTH",
       "ANKLE",
       "TALK",
-      "STUFFING",
+      "STUFFED",
       "BALLOON",
       "CRUMBLE",
       "PACK",
@@ -2112,7 +2015,7 @@
       "PENDANT",
       "SHRED",
       "BROOCH",
-      "MELTING"
+      "MELT"
     ],
     "red_herrings": [],
     "meta": {
@@ -2158,7 +2061,7 @@
         "members": [
           "BIRD",
           "FALLIN\u2019",
-          "SOLO CUP",
+          "SOLO",
           "WILLY"
         ],
         "theme_type": "fill_suffix",
@@ -2206,7 +2109,7 @@
       "BALL",
       "BREAD",
       "TOURNAMENT",
-      "SOLO CUP",
+      "SOLO",
       "PASSION",
       "NET",
       "DRAGON"
