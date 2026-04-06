@@ -775,15 +775,42 @@ async function apiGuess(id,words){
   if(!r.ok) throw new Error('HTTP '+r.status);
   return r.json();
 }
-async function loadPuzzle(){
-  for(let i=0;i<5;i++){
-    try{const p=await apiFetchRandom();if(!seenIds.has(p.id))return p;}catch(e){break;}
+
+
+// async function loadPuzzle(){ #For when using API and not a static site as is in deployment
+//   for(let i=0;i<5;i++){
+//     try{const p=await apiFetchRandom();if(!seenIds.has(p.id))return p;}catch(e){break;}
+//   }
+//   try{return await apiGenerate();}catch(e){}
+//   console.warn('[connections] Using fallback puzzle.');
+//   const fb=JSON.parse(JSON.stringify(FALLBACK_PUZZLE));
+//   if(seenIds.has(fb.id))fb.id='fallback-'+Date.now();
+//   return normalisePuzzle(fb);
+// }
+
+async function loadPuzzle() {
+  // Load all puzzles from the bundled store
+  try {
+    const res = await fetch('./puzzle_store.json');
+    if (!res.ok) throw new Error('store not found');
+    const puzzles = await res.json();
+
+    if (!puzzles || puzzles.length === 0) throw new Error('store empty');
+
+    // Filter out puzzles already seen this session
+    const unseen = puzzles.filter(p => !seenIds.has(p.id));
+    const pool   = unseen.length > 0 ? unseen : puzzles;
+
+    // Pick a random one
+    const chosen = pool[Math.floor(Math.random() * pool.length)];
+    return normalisePuzzle(chosen);
+
+  } catch(e) {
+    console.warn('[connections] Could not load puzzle_store.json — using fallback.', e);
+    const fb = JSON.parse(JSON.stringify(FALLBACK_PUZZLE));
+    if (seenIds.has(fb.id)) fb.id = 'fallback-' + Date.now();
+    return normalisePuzzle(fb);
   }
-  try{return await apiGenerate();}catch(e){}
-  console.warn('[connections] Using fallback puzzle.');
-  const fb=JSON.parse(JSON.stringify(FALLBACK_PUZZLE));
-  if(seenIds.has(fb.id))fb.id='fallback-'+Date.now();
-  return normalisePuzzle(fb);
 }
 
 /* ── Local validate ──────────────────────────────────────────────────────── */
