@@ -1,0 +1,71 @@
+{
+  "cv_accuracy_mean": 0.41136000911992704,
+  "cv_accuracy_std": 0.011003328331941252,
+  "cv_f1_macro_mean": 0.4112115603336289,
+  "cv_f1_macro_std": 0.009143555385392065,
+  "full_dataset_report": {
+    "Yellow": {
+      "precision": 0.7948717948717948,
+      "recall": 0.8197845249755142,
+      "f1-score": 0.8071359691417551,
+      "support": 1021.0
+    },
+    "Green": {
+      "precision": 0.8419979612640163,
+      "recall": 0.8090107737512243,
+      "f1-score": 0.8251748251748252,
+      "support": 1021.0
+    },
+    "Blue": {
+      "precision": 0.7472727272727273,
+      "recall": 0.8050930460333007,
+      "f1-score": 0.7751060820367751,
+      "support": 1021.0
+    },
+    "Purple": {
+      "precision": 0.8789473684210526,
+      "recall": 0.8178256611165524,
+      "f1-score": 0.8472856418061897,
+      "support": 1021.0
+    },
+    "accuracy": 0.8129285014691479,
+    "macro avg": {
+      "precision": 0.8157724629573978,
+      "recall": 0.8129285014691479,
+      "f1-score": 0.8136756295398864,
+      "support": 4084.0
+    },
+    "weighted avg": {
+      "precision": 0.8157724629573978,
+      "recall": 0.8129285014691479,
+      "f1-score": 0.8136756295398863,
+      "support": 4084.0
+    }
+  },
+  "feature_names": [
+    "group_coherence",
+    "theme_member_sim_mean",
+    "theme_member_sim_std",
+    "theme_member_sim_min",
+    "avg_member_word_length",
+    "label_word_count",
+    "red_herring_count",
+    "suffix_compound",
+    "prefix_compound",
+    "sandwich_compound",
+    "connective_pair",
+    "descriptive_category",
+    "proper_noun_set",
+    "verb_phrase_category",
+    "synonym_set",
+    "domain_sports",
+    "domain_food",
+    "domain_music",
+    "domain_geography",
+    "domain_pop_culture",
+    "domain_language",
+    "domain_science",
+    "domain_money",
+    "general_category"
+  ]
+}

@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="NYT-style Connections puzzle generator."/>
+  <title>Connections</title>
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='14' height='14' x='1'  y='1'  rx='3' fill='%23F9DF6D'/><rect width='14' height='14' x='17' y='1'  rx='3' fill='%23A0C35A'/><rect width='14' height='14' x='1'  y='17' rx='3' fill='%23B0C4EF'/><rect width='14' height='14' x='17' y='17' rx='3' fill='%23BA81C5'/></svg>"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+:root {
+  /* NYT difficulty colours — unchanged */
+  --yellow:  #F9DF6D;
+  --green:   #A0C35A;
+  --blue:    #B0C4EF;
+  --purple:  #BA81C5;
+
+  /* Brand palette — warm slate, not cold grey */
+  --bg:           #EEE9E0;        /* warm parchment */
+  --bg2:          #E4DECE;        /* slightly darker parchment for contrast */
+  --surface:      #FAF8F4;        /* near-white card surface */
+  --accent:       #4A6FA5;        /* slate blue accent — doesn't clash with any group colour */
+  --accent-light: #D6E4F7;
+  --border:       #D5CEBF;
+  --border-mid:   #B8B0A0;
+  --text:         #1E1C18;
+  --text-muted:   #6B6456;
+  --text-light:   #9C9285;
+
+  --tile-bg:      #DEDAD1;
+  --tile-hover:   #CEC9BE;
+  --tile-sel:     #1E1C18;
+  --tile-sel-fg:  #FAF8F4;
+
+  --gap:      8px;
+  --r:        6px;
+  --r-lg:     10px;
+  --max-w:    600px;
+  --font:     'DM Sans', sans-serif;
+  --font-d:   'DM Serif Display', serif;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;-webkit-font-smoothing:antialiased}
+
+body{
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  /* subtle warm noise texture */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+button{font-family:var(--font);cursor:pointer;border:none;background:none}
+button:disabled{cursor:not-allowed;opacity:0.42}
+
+/* ── Layout ───────────────────────────────────────────────────────────── */
+.app{
+  width:100%;max-width:var(--max-w);
+  padding:0 14px 56px;
+  display:flex;flex-direction:column;align-items:center;
+}
+
+/* ── Header ───────────────────────────────────────────────────────────── */
+.header-wrap{
+  width:100%;max-width:var(--max-w);
+  padding:0 14px;
+}
+
+.header{
+  width:100%;
+  padding:18px 0 14px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  position:relative;
+  border-bottom:2px solid var(--border-mid);
+  margin-bottom:18px;
+}
+
+/* Four-square logo */
+.logo{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:4px;
+  width:36px;height:36px;
+  margin-bottom:8px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.12));
+}
+.logo__sq{
+  border-radius:3px;
+  transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+.logo__sq:nth-child(1){background:var(--yellow)}
+.logo__sq:nth-child(2){background:var(--green)}
+.logo__sq:nth-child(3){background:var(--blue)}
+.logo__sq:nth-child(4){background:var(--purple)}
+.logo:hover .logo__sq:nth-child(1){transform:translate(-2px,-2px)}
+.logo:hover .logo__sq:nth-child(2){transform:translate(2px,-2px)}
+.logo:hover .logo__sq:nth-child(3){transform:translate(-2px,2px)}
+.logo:hover .logo__sq:nth-child(4){transform:translate(2px,2px)}
+
+.header__title{
+  font-family:var(--font-d);
+  font-size:clamp(26px,6vw,34px);
+  font-weight:400;
+  letter-spacing:-0.5px;
+  color:var(--text);
+  line-height:1;
+}
+.header__title em{
+  font-style:italic;
+  color:var(--accent);
+}
+.header__sub{
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  color:var(--text-muted);
+  margin-top:4px;
+}
+.header__btn-new{
+  position:absolute;right:0;top:50%;transform:translateY(-50%);
+  font-size:11px;font-weight:700;letter-spacing:0.5px;
+  color:var(--accent);
+  padding:6px 14px;
+  border:1.5px solid var(--accent);
+  border-radius:99px;
+  transition:background 120ms,color 120ms;
+}
+.header__btn-new:hover:not(:disabled){
+  background:var(--accent);color:#fff;
+}
+
+/* ── Instructions ─────────────────────────────────────────────────────── */
+.instructions{
+  font-size:13.5px;color:var(--text-muted);
+  text-align:center;margin-bottom:14px;line-height:1.55;
+}
+
+/* ── Lives ────────────────────────────────────────────────────────────── */
+.lives{
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:14px;
+}
+.lives__label{
+  font-size:11px;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--text-muted);
+}
+.lives__dots{display:flex;gap:7px}
+.lives__dot{
+  width:11px;height:11px;border-radius:50%;
+  background:var(--accent);
+  transition:transform 0.35s cubic-bezier(0.34,1.2,0.64,1),
+             background 0.3s,opacity 0.3s;
+  box-shadow:0 1px 3px rgba(74,111,165,0.35);
+}
+.lives__dot.lost{
+  background:var(--border-mid);
+  transform:scale(0.7);opacity:0.45;
+  box-shadow:none;
+}
+
+/* ── Solved bars ──────────────────────────────────────────────────────── */
+.solved-groups{
+  width:100%;display:flex;flex-direction:column;
+  gap:var(--gap);margin-bottom:var(--gap);
+}
+.solved-group{
+  width:100%;border-radius:var(--r-lg);padding:15px 18px;
+  display:flex;flex-direction:column;gap:3px;
+  animation:solveReveal 0.5s cubic-bezier(0.34,1.56,0.64,1) both;
+  box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
+@keyframes solveReveal{
+  from{opacity:0;transform:translateY(-10px) scale(0.97)}
+  to  {opacity:1;transform:translateY(0)     scale(1)}
+}
+.solved-group[data-color="yellow"]{background:var(--yellow)}
+.solved-group[data-color="green"] {background:var(--green)}
+.solved-group[data-color="blue"]  {background:var(--blue)}
+.solved-group[data-color="purple"]{background:var(--purple)}
+.solved-group__theme{
+  font-size:13px;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.9px;
+  color:rgba(0,0,0,0.72);
+}
+.solved-group__members{
+  font-size:13px;color:rgba(0,0,0,0.58);
+}
+
+/* ── Board ────────────────────────────────────────────────────────────── */
+.board{
+  width:100%;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:var(--gap);
+}
+.tile{
+  aspect-ratio:1/0.72;
+  border-radius:var(--r-lg);
+  background:var(--tile-bg);
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:6px 8px;
+  font-size:clamp(10.5px,2.3vw,13.5px);
+  font-weight:700;letter-spacing:0.4px;text-transform:uppercase;
+  line-height:1.2;cursor:pointer;user-select:none;
+  border:1.5px solid transparent;
+  transition:background 110ms,transform 110ms,box-shadow 110ms,border-color 110ms;
+  box-shadow:0 1px 3px rgba(0,0,0,0.06);
+}
+.tile:hover:not(.tile--selected):not(.tile--disabled){
+  background:var(--tile-hover);
+  transform:translateY(-2px);
+  box-shadow:0 5px 14px rgba(0,0,0,0.09);
+}
+.tile--selected{
+  background:var(--tile-sel);color:var(--tile-sel-fg);
+  transform:translateY(-2px);
+  box-shadow:0 5px 16px rgba(0,0,0,0.2);
+  border-color:rgba(255,255,255,0.08);
+}
+.tile--disabled{pointer-events:none}
+
+.tile--shake{animation:shake 0.48s cubic-bezier(.36,.07,.19,.97) both}
+@keyframes shake{
+  10%,90%{transform:translateX(-2px)}
+  20%,80%{transform:translateX(4px)}
+  30%,50%,70%{transform:translateX(-6px)}
+  40%,60%{transform:translateX(6px)}
+}
+.tile--bounce{animation:tileBounce 0.22s cubic-bezier(0.34,1.8,0.64,1) both}
+@keyframes tileBounce{
+  from{transform:scale(1)}
+  50%{transform:scale(1.1) translateY(-4px)}
+  to{transform:scale(1) translateY(-2px)}
+}
+.tile--flip{animation:tileFlip 0.5s ease both}
+@keyframes tileFlip{
+  0%{transform:rotateY(0)   scale(1)}
+  40%{transform:rotateY(90deg) scale(0.9)}
+  60%{transform:rotateY(-8deg) scale(1.04)}
+  100%{transform:rotateY(0) scale(1)}
+}
+
+/* ── Controls ─────────────────────────────────────────────────────────── */
+.controls{
+  display:flex;gap:9px;
+  margin-top:16px;flex-wrap:wrap;justify-content:center;
+}
+.btn{
+  font-size:12.5px;font-weight:700;letter-spacing:0.4px;
+  padding:9px 20px;border-radius:99px;
+  border:1.5px solid var(--border-mid);
+  background:var(--surface);color:var(--text);
+  transition:all 120ms;
+  box-shadow:0 1px 3px rgba(0,0,0,0.06);
+}
+.btn:hover:not(:disabled){
+  background:var(--text);color:var(--surface);
+  border-color:var(--text);
+  transform:translateY(-1px);
+  box-shadow:0 4px 12px rgba(0,0,0,0.13);
+}
+.btn--primary{
+  background:var(--accent);color:#fff;
+  border-color:var(--accent);
+}
+.btn--primary:hover:not(:disabled){
+  background:#3a5f95;border-color:#3a5f95;
+}
+
+/* ── Toast ────────────────────────────────────────────────────────────── */
+.toast-area{
+  height:38px;display:flex;align-items:center;
+  justify-content:center;margin-top:13px;
+}
+.toast{
+  font-size:13px;font-weight:700;
+  padding:8px 22px;border-radius:99px;
+  background:var(--text);color:var(--surface);
+  animation:toastIn 0.18s ease both;pointer-events:none;
+  box-shadow:0 4px 16px rgba(0,0,0,0.18);
+}
+.toast--already{
+  background:var(--accent-light);color:var(--accent);
+  border:1.5px solid var(--accent);
+}
+@keyframes toastIn{
+  from{opacity:0;transform:translateY(6px) scale(0.96)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+.toast--fade{animation:toastOut 0.3s ease both}
+@keyframes toastOut{
+  from{opacity:1}to{opacity:0;transform:scale(0.96)}
+}
+
+/* ── Modal ────────────────────────────────────────────────────────────── */
+.modal-overlay{
+  position:fixed;inset:0;
+  background:rgba(30,28,24,0.52);
+  display:flex;align-items:center;justify-content:center;
+  z-index:100;padding:16px;
+  animation:fadeIn 0.2s ease both;
+  backdrop-filter:blur(3px);
+}
+.modal-overlay.hidden{display:none}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+.modal{
+  background:var(--surface);
+  border-radius:16px;
+  padding:32px 28px 28px;
+  max-width:400px;width:100%;
+  text-align:center;position:relative;
+  animation:modalIn 0.32s cubic-bezier(0.34,1.4,0.64,1) both;
+  box-shadow:0 24px 64px rgba(0,0,0,0.28);
+  border:1px solid var(--border);
+}
+@keyframes modalIn{
+  from{opacity:0;transform:scale(0.88) translateY(22px)}
+  to{opacity:1;transform:scale(1) translateY(0)}
+}
+.modal__close{
+  position:absolute;top:12px;right:14px;
+  width:30px;height:30px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;color:var(--text-muted);
+  transition:background 120ms,color 120ms;
+}
+.modal__close:hover{background:var(--border);color:var(--text)}
+
+
+.modal__emoji{
+  font-size:46px;display:block;margin-bottom:10px;
+  animation:emojiBounce 0.6s cubic-bezier(0.34,1.8,0.64,1) 0.15s both;
+}
+@keyframes emojiBounce{from{transform:scale(0)}to{transform:scale(1)}}
+.modal__title{
+  font-family:var(--font-d);font-size:28px;font-weight:400;
+  margin-bottom:6px;
+}
+.modal__subtitle{
+  font-size:14px;color:var(--text-muted);
+  margin-bottom:20px;line-height:1.5;
+}
+.share-grid{
+  display:flex;flex-direction:column;
+  gap:4px;margin-bottom:20px;align-items:center;
+}
+.share-row{display:flex;gap:4px}
+.share-sq{
+  width:30px;height:30px;border-radius:4px;
+  box-shadow:inset 0 -2px 0 rgba(0,0,0,0.12);
+}
+.share-sq[data-color="yellow"]{background:var(--yellow)}
+.share-sq[data-color="green"] {background:var(--green)}
+.share-sq[data-color="blue"]  {background:var(--blue)}
+.share-sq[data-color="purple"]{background:var(--purple)}
+.share-sq[data-color="miss"]  {background:#D5CEBF}
+.modal__actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+
+/* ── Floating results ─────────────────────────────────────────────────── */
+.btn-results{
+  position:fixed;bottom:24px;right:24px;
+  font-size:13px;font-weight:700;
+  padding:11px 22px;border-radius:99px;
+  background:var(--accent);color:#fff;border:none;
+  box-shadow:0 4px 20px rgba(74,111,165,0.4);
+  transition:transform 120ms,box-shadow 120ms,opacity 200ms;
+  z-index:50;opacity:0;pointer-events:none;
+}
+.btn-results.visible{
+  opacity:1;pointer-events:auto;
+  animation:resultsIn 0.32s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+@keyframes resultsIn{
+  from{opacity:0;transform:translateY(18px) scale(0.88)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+.btn-results:hover{
+  transform:translateY(-2px);
+  box-shadow:0 7px 26px rgba(74,111,165,0.45);
+}
+
+/* ── Loading ──────────────────────────────────────────────────────────── */
+.loading-overlay{
+  position:fixed;inset:0;background:var(--bg);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:14px;z-index:200;transition:opacity 0.4s ease;
+}
+.loading-overlay.hidden{opacity:0;pointer-events:none}
+.loading__logo{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:5px;width:48px;height:48px;
+  animation:logoPulse 1.4s ease-in-out infinite;
+}
+@keyframes logoPulse{
+  0%,100%{transform:scale(1);opacity:1}
+  50%{transform:scale(1.06);opacity:0.85}
+}
+.loading__logo div{border-radius:4px}
+.loading__logo div:nth-child(1){background:var(--yellow)}
+.loading__logo div:nth-child(2){background:var(--green)}
+.loading__logo div:nth-child(3){background:var(--blue)}
+.loading__logo div:nth-child(4){background:var(--purple)}
+.loading__title{
+  font-family:var(--font-d);font-size:28px;color:var(--text);
+}
+.loading__msg{
+  font-size:13px;color:var(--text-muted);font-weight:600;
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────── */
+
+
+/* ── Timer ────────────────────────────────────────────────────────────── */
+.timer-row{
+  display:flex;align-items:center;justify-content:center;
+  gap:8px;margin-bottom:14px;
+}
+.timer-icon{
+  font-size:13px;opacity:0.55;
+}
+.timer{
+  font-family:var(--font-d);
+  font-size:17px;font-weight:400;font-style:italic;
+  letter-spacing:0.5px;
+  color:var(--text-muted);
+  min-width:52px;text-align:center;
+  transition:color 0.3s;
+}
+.timer.timer--running{color:var(--text)}
+.timer.timer--stopped{color:var(--accent);font-weight:700}
+
+/* Timer in modal */
+.modal__time{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:13px;color:var(--text-muted);
+  margin-bottom:16px;
+  background:var(--bg);border-radius:99px;
+  padding:5px 14px;
+  border:1px solid var(--border);
+}
+.modal__time-val{
+  font-family:var(--font-d);font-style:italic;
+  font-size:14px;font-weight:400;color:var(--text);
+}
+
+/* ── How To Play button ───────────────────────────────────────────────── */
+.btn-how{
+  position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:30px;height:30px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  border:2px solid var(--border-mid);
+  background:var(--surface);
+  color:var(--text-muted);
+  font-family:var(--font-d);
+  font-size:15px;font-style:italic;font-weight:700;
+  transition:all 160ms cubic-bezier(0.34,1.4,0.64,1);
+  box-shadow:0 1px 4px rgba(0,0,0,0.08);
+  line-height:1;
+}
+.btn-how:hover{
+  background:var(--accent);color:#fff;
+  border-color:var(--accent);
+  transform:translateY(-50%) scale(1.12);
+  box-shadow:0 4px 14px rgba(74,111,165,0.35);
+}
+/* ── How To Play modal content ────────────────────────────────────────── */
+.htp-modal{
+  background:var(--surface);border-radius:16px;
+  padding:32px 28px 28px;max-width:420px;width:100%;
+  text-align:left;position:relative;
+  animation:modalIn 0.32s cubic-bezier(0.34,1.4,0.64,1) both;
+  box-shadow:0 24px 64px rgba(0,0,0,0.28);border:1px solid var(--border);
+  max-height:90vh;overflow-y:auto;
+}
+.htp-modal__title{
+  font-family:var(--font-d);font-size:24px;font-weight:400;
+  text-align:center;margin-bottom:18px;
+}
+.htp-section{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px}
+.htp-section:last-of-type{margin-bottom:0}
+.htp-icon{
+  flex-shrink:0;width:36px;height:36px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;font-size:18px;
+}
+.htp-icon--yellow{background:var(--yellow)}
+.htp-icon--green {background:var(--green)}
+.htp-icon--blue  {background:var(--blue)}
+.htp-icon--purple{background:var(--purple)}
+.htp-icon--guess {background:var(--tile-bg);font-size:14px;font-weight:700;color:var(--text)}
+.htp-section__body{flex:1}
+.htp-section__title{font-size:13px;font-weight:700;margin-bottom:3px;text-transform:uppercase;letter-spacing:0.6px}
+.htp-section__desc{font-size:13px;color:var(--text-muted);line-height:1.5}
+.htp-divider{border:none;border-top:1px solid var(--border);margin:16px 0}
+.htp-example{background:var(--bg2);border-radius:10px;padding:12px 14px;margin-bottom:16px}
+.htp-example__label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px}
+.htp-example__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}
+.htp-example__tile{
+  background:var(--tile-bg);border-radius:6px;padding:7px 4px;
+  text-align:center;font-size:11px;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.3px;
+}
+.htp-example__tile--sel{background:var(--tile-sel);color:var(--tile-sel-fg)}
+.htp-footer{display:flex;justify-content:center;margin-top:20px}
+
+@media(max-width:480px){
+  .tile{aspect-ratio:1/0.82;font-size:10.5px}
+  .btn{font-size:12px;padding:8px 16px}
+  .header__btn-new{font-size:11px;padding:5px 10px}
+  .btn-results{bottom:16px;right:16px}
+}
+</style>
+</head>
+<body>
+
+<!-- ── Loading ─────────────────────────────────────────────────────────────── -->
+<div class="loading-overlay" id="loading">
+  <div class="loading__logo">
+    <div></div><div></div><div></div><div></div>
+  </div>
+  <div class="loading__title">Connections</div>
+  <div class="loading__msg" id="loading-msg">Loading puzzle…</div>
+</div>
+
+<!-- ── App ─────────────────────────────────────────────────────────────────── -->
+<div class="header-wrap">
+  <header class="header">
+    <div class="logo" title="Connections">
+      <div class="logo__sq"></div>
+      <div class="logo__sq"></div>
+      <div class="logo__sq"></div>
+      <div class="logo__sq"></div>
+    </div>
+    <div class="header__title"><em>Connections</em></div>
+    <div class="header__sub">Find the four groups</div>
+    <button class="btn-how" id="btn-how" aria-label="How to play"><em>i</em></button>
+    <button class="header__btn-new" id="btn-new">New Puzzle</button>
+  </header>
+</div>
+
+<div class="app">
+  <p class="instructions">
+    Select four words that share a hidden connection, then press <strong>Submit</strong>.
+  </p>
+
+  <div class="lives">
+    <span class="lives__label">Mistakes remaining</span>
+    <div class="lives__dots" id="lives-dots"></div>
+  </div>
+
+  <div class="timer-row">
+    <span class="timer-icon">⏱</span>
+    <span class="timer" id="timer">0:00</span>
+  </div>
+
+  <div class="solved-groups" id="solved-groups"></div>
+  <div class="board" id="board"></div>
+  <div class="toast-area" id="toast-area" aria-live="polite"></div>
+
+  <div class="controls">
+    <button class="btn" id="btn-shuffle">Shuffle</button>
+    <button class="btn" id="btn-deselect" disabled>Deselect All</button>
+    <button class="btn btn--primary" id="btn-submit" disabled>Submit</button>
+  </div>
+</div>
+
+
+<!-- ── How To Play modal ───────────────────────────────────────────────────── -->
+<div class="modal-overlay hidden" id="htp-modal">
+  <div class="htp-modal">
+    <button class="modal__close" id="btn-htp-close" aria-label="Close">&#x2715;</button>
+    <h2 class="htp-modal__title"><em>How to Play</em></h2>
+
+    <div class="htp-example">
+      <div class="htp-example__label">Example board</div>
+      <div class="htp-example__grid">
+        <div class="htp-example__tile">FIRE</div>
+        <div class="htp-example__tile htp-example__tile--sel">CLIP</div>
+        <div class="htp-example__tile">BARK</div>
+        <div class="htp-example__tile htp-example__tile--sel">TRAIL</div>
+        <div class="htp-example__tile">PITCH</div>
+        <div class="htp-example__tile htp-example__tile--sel">TOWEL</div>
+        <div class="htp-example__tile">RATE</div>
+        <div class="htp-example__tile htp-example__tile--sel">TIGER</div>
+      </div>
+    </div>
+
+    <div class="htp-section">
+      <div class="htp-icon htp-icon--guess">4</div>
+      <div class="htp-section__body">
+        <div class="htp-section__title">Select four words</div>
+        <div class="htp-section__desc">Tap any four words you think belong together. Then press <strong>Submit</strong>.</div>
+      </div>
+    </div>
+
+    <hr class="htp-divider"/>
+
+    <div class="htp-section">
+      <div class="htp-icon htp-icon--yellow">🟨</div>
+      <div class="htp-section__body">
+        <div class="htp-section__title">Yellow — Straightforward</div>
+        <div class="htp-section__desc">The easiest group. A clear, obvious connection between the four words.</div>
+      </div>
+    </div>
+    <div class="htp-section">
+      <div class="htp-icon htp-icon--green">🟩</div>
+      <div class="htp-section__body">
+        <div class="htp-section__title">Green — Moderate</div>
+        <div class="htp-section__desc">Requires a bit more lateral thinking. You may need to test a few combinations.</div>
+      </div>
+    </div>
+    <div class="htp-section">
+      <div class="htp-icon htp-icon--blue">🟦</div>
+      <div class="htp-section__body">
+        <div class="htp-section__title">Blue — Tricky</div>
+        <div class="htp-section__desc">The connection is subtle. Watch out for red herrings — some words will seem to fit multiple groups.</div>
+      </div>
+    </div>
+    <div class="htp-section">
+      <div class="htp-icon htp-icon--purple">🟪</div>
+      <div class="htp-section__body">
+        <div class="htp-section__title">Purple — Devious</div>
+        <div class="htp-section__desc">The hardest group. Often involves wordplay, homophones, or unexpected connections.</div>
+      </div>
+    </div>
+
+    <hr class="htp-divider"/>
+
+    <div class="htp-section">
+      <div class="htp-icon" style="background:var(--border);font-size:16px">❤️</div>
+      <div class="htp-section__body">
+        <div class="htp-section__title">Four mistakes allowed</div>
+        <div class="htp-section__desc">You have four lives. Each wrong guess costs one. If the puzzle tells you <em>One away</em>, three of your four words are correct.</div>
+      </div>
+    </div>
+
+    <div class="htp-footer">
+      <button class="btn btn--primary" id="btn-htp-play">Let's Play!</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── Modal ───────────────────────────────────────────────────────────────── -->
+<div class="modal-overlay hidden" id="modal">
+  <div class="modal">
+    <button class="modal__close" id="btn-modal-close" aria-label="Close">&#x2715;</button>
+    <span class="modal__emoji" id="modal-emoji">🎉</span>
+    <h2 class="modal__title" id="modal-title">Solved!</h2>
+    <p class="modal__subtitle" id="modal-subtitle"></p>
+    <div class="modal__time" id="modal-time" style="display:none">
+      <span>⏱</span><span class="modal__time-val" id="modal-time-val"></span>
+    </div>
+    <div class="share-grid" id="share-grid"></div>
+    <div class="modal__actions">
+      <button class="btn" id="btn-share">Share Result</button>
+      <button class="btn btn--primary" id="btn-play-again">Play Again</button>
+    </div>
+  </div>
+</div>
+
+<button class="btn-results" id="btn-results">View Results</button>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════════════════
+   Connections Puzzle — Game Logic
+   Single-file, no module imports, works from file:// and any static server.
+═══════════════════════════════════════════════════════════════════════════ */
+
+const API_BASE = 'http://localhost:8000/api';
+
+/* ── Audio (Web Audio API) ───────────────────────────────────────────────── */
+let _audioCtx = null;
+function getAudio() {
+  if (!_audioCtx) _audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  return _audioCtx;
+}
+function playTone(freq, type='sine', duration=0.08, gain=0.18, delay=0) {
+  try {
+    const ctx = getAudio();
+    const osc = ctx.createOscillator();
+    const env = ctx.createGain();
+    osc.connect(env); env.connect(ctx.destination);
+    osc.type = type; osc.frequency.value = freq;
+    const t = ctx.currentTime + delay;
+    env.gain.setValueAtTime(0, t);
+    env.gain.linearRampToValueAtTime(gain, t + 0.01);
+    env.gain.exponentialRampToValueAtTime(0.001, t + duration);
+    osc.start(t); osc.stop(t + duration + 0.05);
+  } catch(e) {}
+}
+function sfxSelect()    { playTone(520, 'sine', 0.06, 0.12); }
+function sfxDeselect()  { playTone(380, 'sine', 0.06, 0.08); }
+function sfxCorrect()   {
+  playTone(523, 'sine', 0.12, 0.18, 0);
+  playTone(659, 'sine', 0.12, 0.18, 0.10);
+  playTone(784, 'sine', 0.18, 0.20, 0.22);
+}
+function sfxWrong()     {
+  playTone(280, 'sawtooth', 0.12, 0.14, 0);
+  playTone(230, 'sawtooth', 0.14, 0.14, 0.10);
+}
+function sfxOneAway()   { playTone(440, 'sine', 0.18, 0.18); }
+function sfxWin()       {
+  [523,587,659,698,784].forEach((f,i) => playTone(f,'sine',0.18,0.18,i*0.09));
+}
+function sfxLose()      {
+  [350,300,260].forEach((f,i) => playTone(f,'sawtooth',0.18,0.14,i*0.12));
+}
+function sfxAlreadyGuessed() { playTone(460,'sine',0.08,0.10); }
+
+/* ── Fallback puzzle ─────────────────────────────────────────────────────── */
+const FALLBACK_PUZZLE = {
+  id:'fallback-001',
+  groups:[
+    {level:0,color:'yellow',hex:'#F9DF6D',theme:'PAPER ___',
+     members:['CLIP','TRAIL','TOWEL','TIGER'],theme_type:'fill_in_blank',coherence:0.55},
+    {level:1,color:'green',hex:'#A0C35A',theme:'EXHIBIT NERVOUSNESS',
+     members:['BLUSH','FIDGET','PACE','SWEAT'],theme_type:'category_member',coherence:0.45},
+    {level:2,color:'blue',hex:'#B0C4EF',theme:'THINGS THAT CAN RUN, ANNOYINGLY',
+     members:['DYE','MASCARA','NOSE','STOCKINGS'],theme_type:'associated_with',coherence:0.38},
+    {level:3,color:'purple',hex:'#BA81C5',theme:'EVALUATE',
+     members:['GRADE','RANK','RATE','SCORE'],theme_type:'double_meaning',coherence:0.30},
+  ],
+  words_shuffled:['CLIP','BLUSH','DYE','GRADE','TRAIL','FIDGET',
+                  'MASCARA','RANK','TOWEL','PACE','NOSE','RATE',
+                  'TIGER','SWEAT','STOCKINGS','SCORE'],
+  red_herrings:['SCORE','PACE'],
+};
+
+/* ── Utilities ───────────────────────────────────────────────────────────── */
+function shuffle(arr) {
+  const a=[...arr];
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
+  return a;
+}
+function delay(ms){return new Promise(r=>setTimeout(r,ms))}
+function normalisePuzzle(p){
+  if(!p.words_shuffled||!p.words_shuffled.length)
+    p.words_shuffled=shuffle(p.groups.flatMap(g=>g.members));
+  return p;
+}
+/* Canonical sort key for a set of words — used to detect duplicate guesses */
+function guessKey(words){return [...words].map(w=>w.toUpperCase()).sort().join('|')}
+
+/* ── API ─────────────────────────────────────────────────────────────────── */
+async function apiFetchRandom(){
+  const r=await fetch(API_BASE+'/puzzle/random');
+  if(!r.ok) throw new Error('HTTP '+r.status);
+  return normalisePuzzle(await r.json());
+}
+async function apiGenerate(){
+  const r=await fetch(API_BASE+'/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});
+  if(!r.ok) throw new Error('HTTP '+r.status);
+  return normalisePuzzle((await r.json()).puzzle);
+}
+async function apiGuess(id,words){
+  const r=await fetch(`${API_BASE}/puzzle/${id}/guess`,{
+    method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({puzzle_id:id,words})
+  });
+  if(!r.ok) throw new Error('HTTP '+r.status);
+  return r.json();
+}
+async function loadPuzzle(){
+  for(let i=0;i<5;i++){
+    try{const p=await apiFetchRandom();if(!seenIds.has(p.id))return p;}catch(e){break;}
+  }
+  try{return await apiGenerate();}catch(e){}
+  console.warn('[connections] Using fallback puzzle.');
+  const fb=JSON.parse(JSON.stringify(FALLBACK_PUZZLE));
+  if(seenIds.has(fb.id))fb.id='fallback-'+Date.now();
+  return normalisePuzzle(fb);
+}
+
+/* ── Local validate ──────────────────────────────────────────────────────── */
+function localValidate(puz,words){
+  const g=new Set(words.map(w=>w.toUpperCase()));
+  let best=0,match=null;
+  for(const grp of puz.groups){
+    const gw=new Set(grp.members.map(m=>m.toUpperCase()));
+    const ov=[...g].filter(w=>gw.has(w)).length;
+    if(ov>best){best=ov;match=grp;}
+  }
+  if(best===4)return{correct:true, one_away:false,group:match};
+  if(best===3)return{correct:false,one_away:true, group:null};
+  return          {correct:false,one_away:false,group:null};
+}
+
+/* ── DOM refs ────────────────────────────────────────────────────────────── */
+const $loading      =document.getElementById('loading');
+const $loadingMsg   =document.getElementById('loading-msg');
+const $board        =document.getElementById('board');
+const $solvedGroups =document.getElementById('solved-groups');
+const $livesDots    =document.getElementById('lives-dots');
+const $toastArea    =document.getElementById('toast-area');
+const $btnShuffle   =document.getElementById('btn-shuffle');
+const $btnDeselect  =document.getElementById('btn-deselect');
+const $btnSubmit    =document.getElementById('btn-submit');
+const $btnNew       =document.getElementById('btn-new');
+const $modal        =document.getElementById('modal');
+const $modalEmoji   =document.getElementById('modal-emoji');
+const $modalTitle   =document.getElementById('modal-title');
+const $modalSub     =document.getElementById('modal-subtitle');
+const $shareGrid    =document.getElementById('share-grid');
+const $btnShare     =document.getElementById('btn-share');
+const $btnPlayAgain =document.getElementById('btn-play-again');
+const $btnModalClose=document.getElementById('btn-modal-close');
+const $btnResults   =document.getElementById('btn-results');
+const $timer        =document.getElementById('timer');
+const $modalTime    =document.getElementById('modal-time');
+const $modalTimeVal =document.getElementById('modal-time-val');
+
+/* ── State ───────────────────────────────────────────────────────────────── */
+let puzzle        = null;
+let selected      = [];
+let solvedLevels  = [];
+let guessHistory  = [];         // [{words, color}]
+let pastGuessKeys = new Set();  // sorted-word-key → already guessed detection
+let livesLeft     = 4;
+let gameOver      = false;
+let boardLocked   = false;
+let seenIds       = new Set();
+
+/* ── Timer state ─────────────────────────────────────────────────────────── */
+let timerInterval = null;
+let timerSeconds  = 0;
+let timerStarted  = false;
+
+/* ── Loading ─────────────────────────────────────────────────────────────── */
+/* ── Timer ───────────────────────────────────────────────────────────────── */
+function fmtTime(s){
+  const m=Math.floor(s/60),sec=s%60;
+  return m+':'+(sec<10?'0':'')+sec;
+}
+function startTimer(){
+  if(timerStarted)return;
+  timerStarted=true;
+  timerSeconds=0;
+  $timer.textContent=fmtTime(0);
+  $timer.className='timer timer--running';
+  clearInterval(timerInterval);
+  timerInterval=setInterval(()=>{
+    timerSeconds++;
+    $timer.textContent=fmtTime(timerSeconds);
+  },1000);
+}
+function stopTimer(){
+  clearInterval(timerInterval);
+  timerInterval=null;
+  $timer.className='timer timer--stopped';
+}
+function resetTimer(){
+  stopTimer();
+  timerStarted=false;
+  timerSeconds=0;
+  $timer.textContent=fmtTime(0);
+  $timer.className='timer';
+}
+
+const LOAD_MSGS=['Picking words carefully…','Hiding the red herrings…','Arranging the tiles…','Almost there…'];
+let loadIdx=0,loadInterval=null;
+function showLoading(show){
+  if(show){
+    $loading.classList.remove('hidden');
+    $loadingMsg.textContent=LOAD_MSGS[0];loadIdx=0;
+    clearInterval(loadInterval);
+    loadInterval=setInterval(()=>{loadIdx=(loadIdx+1)%LOAD_MSGS.length;$loadingMsg.textContent=LOAD_MSGS[loadIdx];},900);
+  } else {
+    clearInterval(loadInterval);
+    $loading.classList.add('hidden');
+  }
+}
+
+/* ── Board ───────────────────────────────────────────────────────────────── */
+function renderBoard(){
+  $board.innerHTML='';
+  puzzle.words_shuffled.forEach((word,i)=>{
+    const btn=document.createElement('button');
+    btn.className='tile';
+    btn.textContent=word;
+    btn.dataset.word=word;
+    btn.style.animationDelay=(i*30)+'ms';
+    btn.addEventListener('click',()=>onTileClick(word));
+    $board.appendChild(btn);
+  });
+}
+function getTile(word){
+  return $board.querySelector(`[data-word="${CSS.escape(word)}"]`);
+}
+function isSolved(word){
+  return solvedLevels.some(lvl=>
+    puzzle.groups.find(g=>g.level===lvl)
+      .members.map(m=>m.toUpperCase()).includes(word.toUpperCase())
+  );
+}
+
+/* ── Selection ───────────────────────────────────────────────────────────── */
+function onTileClick(word){
+  if(boardLocked||gameOver||isSolved(word))return;
+  if(!timerStarted)startTimer();
+  const idx=selected.indexOf(word);
+  if(idx>=0){
+    selected.splice(idx,1);
+    const t=getTile(word);
+    if(t)t.classList.remove('tile--selected');
+    sfxDeselect();
+  } else {
+    if(selected.length>=4)return;
+    selected.push(word);
+    const t=getTile(word);
+    if(t){
+      t.classList.add('tile--selected');
+      t.classList.remove('tile--bounce');
+      void t.offsetWidth;
+      t.classList.add('tile--bounce');
+    }
+    sfxSelect();
+  }
+  updateControls();
+}
+function clearSelection(){
+  selected.forEach(w=>{const t=getTile(w);if(t)t.classList.remove('tile--selected');});
+  selected=[];
+  updateControls();
+}
+function updateControls(){
+  $btnDeselect.disabled=selected.length===0||gameOver;
+  $btnSubmit.disabled  =selected.length!==4 ||gameOver;
+  $btnShuffle.disabled =gameOver;
+}
+
+/* ── Submit ──────────────────────────────────────────────────────────────── */
+async function handleSubmit(){
+  if(selected.length!==4||gameOver||boardLocked)return;
+
+  const words=[...selected];
+  const key=guessKey(words);
+
+  /* ── Already guessed check ── */
+  if(pastGuessKeys.has(key)){
+    sfxAlreadyGuessed();
+    showToast('Already guessed!',1600,'toast--already');
+    // Briefly pulse the selected tiles without consuming a life
+    words.forEach(w=>{
+      const t=getTile(w);
+      if(!t)return;
+      t.classList.remove('tile--shake');
+      void t.offsetWidth;
+      t.classList.add('tile--shake');
+      t.addEventListener('animationend',()=>t.classList.remove('tile--shake'),{once:true});
+    });
+    return;
+  }
+  pastGuessKeys.add(key);
+
+  boardLocked=true;
+  $btnSubmit.disabled=true;
+
+  let result;
+  try{result=await apiGuess(puzzle.id,words);}
+  catch{result=localValidate(puzzle,words);}
+
+  guessHistory.push({words,color:result.correct?result.group.color:'miss'});
+
+  if(result.correct){
+    const group=result.group;
+    const members=group.members.map(m=>m.toUpperCase());
+
+    await Promise.all(members.map((m,i)=>new Promise(res=>{
+      setTimeout(()=>{
+        const t=getTile(m);
+        if(!t){res();return;}
+        t.classList.add('tile--flip');
+        t.addEventListener('animationend',res,{once:true});
+      },i*80);
+    })));
+
+    members.forEach(m=>{const t=getTile(m);if(t)t.style.display='none';});
+    selected=selected.filter(w=>!members.includes(w.toUpperCase()));
+
+    const bar=document.createElement('div');
+    bar.className='solved-group';
+    bar.dataset.color=group.color;
+    bar.innerHTML=`<div class="solved-group__theme">${group.theme}</div>
+      <div class="solved-group__members">${group.members.join(', ')}</div>`;
+    $solvedGroups.appendChild(bar);
+
+    solvedLevels.push(group.level);
+    sfxCorrect();
+    showToast('✓ '+group.theme,1800);
+
+    if(solvedLevels.length===4){
+      gameOver=true;
+      stopTimer();
+      await delay(500);
+      sfxWin();
+      showModal(true);
+      boardLocked=false;
+      return;
+    }
+
+  } else {
+    words.forEach(w=>{
+      const t=getTile(w);if(!t)return;
+      t.classList.remove('tile--shake');void t.offsetWidth;
+      t.classList.add('tile--shake');
+      t.addEventListener('animationend',()=>t.classList.remove('tile--shake'),{once:true});
+    });
+
+    if(result.one_away){sfxOneAway();showToast('One away…',1800);}
+    else{sfxWrong();showToast('Not quite.',1600);}
+
+    clearSelection();
+    livesLeft--;
+    const dots=[...$livesDots.querySelectorAll('.lives__dot')];
+    const active=dots.filter(d=>!d.classList.contains('lost'));
+    if(active.length)active[active.length-1].classList.add('lost');
+
+    if(livesLeft===0){
+      gameOver=true;
+      stopTimer();
+      await delay(600);
+      revealAll();
+      await delay(800);
+      sfxLose();
+      showModal(false);
+      boardLocked=false;
+      return;
+    }
+  }
+
+  updateControls();
+  boardLocked=false;
+}
+
+/* ── Reveal all ──────────────────────────────────────────────────────────── */
+function revealAll(){
+  puzzle.groups
+    .filter(g=>!solvedLevels.includes(g.level))
+    .sort((a,b)=>a.level-b.level)
+    .forEach(g=>{
+      const bar=document.createElement('div');
+      bar.className='solved-group';bar.dataset.color=g.color;
+      bar.innerHTML=`<div class="solved-group__theme">${g.theme}</div>
+        <div class="solved-group__members">${g.members.join(', ')}</div>`;
+      $solvedGroups.appendChild(bar);
+    });
+  $board.querySelectorAll('.tile').forEach(t=>{
+    t.style.transition='opacity 0.4s ease';t.style.opacity='0';
+    setTimeout(()=>t.style.display='none',400);
+  });
+}
+
+/* ── Modal ───────────────────────────────────────────────────────────────── */
+function showModal(won){
+  $modalEmoji.textContent=won?'🎉':'😮';
+  $modalTitle.textContent=won?'Solved!':'Better luck next time';
+  $modalSub.textContent=won
+    ?`You found all four groups!`
+    :`Better luck next time — the answers are revealed below.`;
+  // Show time
+  const t=fmtTime(timerSeconds);
+  $modalTimeVal.textContent=t;
+  $modalTime.style.display='inline-flex';
+  buildShareGrid();
+  $modal.classList.remove('hidden');
+  $btnResults.classList.remove('visible');
+}
+function buildShareGrid(){
+  $shareGrid.innerHTML='';
+  guessHistory.forEach(guess=>{
+    const row=document.createElement('div');row.className='share-row';
+    guess.words.forEach(word=>{
+      const sq=document.createElement('div');sq.className='share-sq';
+      const g=puzzle.groups.find(g=>g.members.map(m=>m.toUpperCase()).includes(word.toUpperCase()));
+      sq.dataset.color=g?g.color:'miss';
+      row.appendChild(sq);
+    });
+    $shareGrid.appendChild(row);
+  });
+}
+function buildShareText(){
+  const cm={yellow:'🟨',green:'🟩',blue:'🟦',purple:'🟪',miss:'⬜'};
+  const rows=guessHistory.map(guess=>
+    guess.words.map(word=>{
+      const g=puzzle.groups.find(g=>g.members.map(m=>m.toUpperCase()).includes(word.toUpperCase()));
+      return cm[g?g.color:'miss']||'⬜';
+    }).join('')
+  ).join('\n');
+  const won=solvedLevels.length===4;
+  const timeStr=fmtTime(timerSeconds);
+  const score=won?`Solved in ${guessHistory.length} guess${guessHistory.length===1?'':'es'} (${timeStr})!`:`Did not solve (${timeStr}).`;
+  return `Connections Puzzle Generator\n${score}\n\n${rows}`;
+}
+
+/* ── Toast ───────────────────────────────────────────────────────────────── */
+let toastTimer=null;
+function showToast(msg,duration=1800,extraClass=''){
+  clearTimeout(toastTimer);$toastArea.innerHTML='';
+  const t=document.createElement('div');
+  t.className='toast'+(extraClass?' '+extraClass:'');
+  t.textContent=msg;
+  $toastArea.appendChild(t);
+  toastTimer=setTimeout(()=>{
+    t.classList.add('toast--fade');
+    t.addEventListener('animationend',()=>t.remove(),{once:true});
+  },duration);
+}
+
+/* ── Lives ───────────────────────────────────────────────────────────────── */
+function renderLives(){
+  $livesDots.innerHTML='';
+  for(let i=0;i<4;i++){
+    const d=document.createElement('div');d.className='lives__dot';
+    $livesDots.appendChild(d);
+  }
+}
+
+/* ── Shuffle ─────────────────────────────────────────────────────────────── */
+function handleShuffle(){
+  if(boardLocked||gameOver)return;
+  const tiles=[...$board.querySelectorAll('.tile')].filter(t=>t.style.display!=='none');
+  shuffle(tiles).forEach(t=>$board.appendChild(t));
+}
+
+/* ── Init ────────────────────────────────────────────────────────────────── */
+function initGame(){
+  selected=[];solvedLevels=[];guessHistory=[];
+  pastGuessKeys=new Set();
+  livesLeft=4;gameOver=false;boardLocked=false;
+  if(puzzle&&puzzle.id)seenIds.add(puzzle.id);
+  $solvedGroups.innerHTML='';
+  $modal.classList.add('hidden');
+  $btnResults.classList.remove('visible');
+  resetTimer();
+  renderLives();renderBoard();updateControls();
+}
+
+/* ── Boot ────────────────────────────────────────────────────────────────── */
+async function boot(){
+  showLoading(true);
+  try{puzzle=await loadPuzzle();}
+  catch(e){console.error(e);puzzle=normalisePuzzle(FALLBACK_PUZZLE);}
+  initGame();
+  showLoading(false);
+}
+
+/* ── Events ──────────────────────────────────────────────────────────────── */
+$btnShuffle.addEventListener('click',handleShuffle);
+$btnDeselect.addEventListener('click',clearSelection);
+$btnSubmit.addEventListener('click',handleSubmit);
+
+$btnNew.addEventListener('click',async()=>{
+  if($btnNew.disabled)return;
+  $btnNew.disabled=true;
+  $modal.classList.add('hidden');
+  showLoading(true);
+  try{puzzle=await loadPuzzle();}catch{puzzle=normalisePuzzle(FALLBACK_PUZZLE);}
+  initGame();showLoading(false);$btnNew.disabled=false;
+});
+
+$btnModalClose.addEventListener('click',()=>{
+  $modal.classList.add('hidden');
+  if(gameOver)$btnResults.classList.add('visible');
+});
+$modal.addEventListener('click',e=>{
+  if(e.target===$modal){
+    $modal.classList.add('hidden');
+    if(gameOver)$btnResults.classList.add('visible');
+  }
+});
+$btnResults.addEventListener('click',()=>{
+  $btnResults.classList.remove('visible');
+  $modal.classList.remove('hidden');
+});
+$btnShare.addEventListener('click',async()=>{
+  const text=buildShareText();
+  try{await navigator.clipboard.writeText(text);showToast('Copied to clipboard!',2000);}
+  catch{prompt('Copy your result:',text);}
+});
+$btnPlayAgain.addEventListener('click',()=>{
+  $modal.classList.add('hidden');$btnNew.click();
+});
+
+boot();
+
+/* ── How To Play ─────────────────────────────────────────────────────────── */
+const $htpModal  = document.getElementById('htp-modal');
+const $btnHow    = document.getElementById('btn-how');
+const $btnHtpClose = document.getElementById('btn-htp-close');
+const $btnHtpPlay  = document.getElementById('btn-htp-play');
+
+$btnHow.addEventListener('click', () => $htpModal.classList.remove('hidden'));
+$btnHtpClose.addEventListener('click', () => $htpModal.classList.add('hidden'));
+$btnHtpPlay.addEventListener('click',  () => $htpModal.classList.add('hidden'));
+$htpModal.addEventListener('click', e => {
+  if (e.target === $htpModal) $htpModal.classList.add('hidden');
+});
+
+</script>
+</body>
+</html>
