@@ -1,0 +1,2136 @@
+[
+  {
+    "id": "gen-34952001",
+    "groups": [
+      {
+        "level": 0,
+        "color": "yellow",
+        "hex": "#F9DF6D",
+        "theme": "FOOD ___",
+        "members": [
+          "CHAINZ",
+          "FIGHT",
+          "PROCESSOR",
+          "PYRAMID"
+        ],
+        "theme_type": "fill_suffix",
+        "coherence": 0.2115
+      },
+      {
+        "level": 1,
+        "color": "green",
+        "hex": "#A0C35A",
+        "theme": "PARTS OF A MOUNTAIN",
+        "members": [
+          "CLIFF",
+          "CRAG",
+          "LEDGE",
+          "FRONTIER"
+        ],
+        "theme_type": "descriptor",
+        "coherence": 0.3366
+      },
+      {
+        "level": 2,
+        "color": "blue",
+        "hex": "#B0C4EF",
+        "theme": "MOVIE CAMERA VERBS",
+        "members": [
+          "DOLLY",
+          "PANE",
+          "TILT",
+          "ZOOM"
+        ],
+        "theme_type": "category",
+        "coherence": 0.2984
+      },
+      {
+        "level": 3,
+        "color": "purple",
+        "hex": "#BA81C5",
+        "theme": "LAST WORDS OF FAMOUS OPERA TITLES",
+        "members": [
+          "DISS",
+          "BUTTERFLY",
+          "FLUTE",
+          "SEVILLE"
+        ],
+        "theme_type": "person_name",
+        "coherence": 0.2542
+      }
+    ],
+    "words_shuffled": [
+      "FLUTE",
+      "CHAINZ",
+      "LEDGE",
+      "FRONTIER",
+      "DOLLY",
+      "PYRAMID",
+      "FIGHT",
+      "TILT",
+      "ZOOM",
+      "PANE",
+      "BUTTERFLY",
+      "PROCESSOR",
+      "DISS",
+      "CLIFF",
+      "CRAG",
+      "SEVILLE"
+    ],
+    "red_herrings": [],
+    "meta": {
+      "combos_evaluated": 35,
+      "assembly_score": 28.4904,
+      "pool_size": 7,
+      "theme_types": [
+        "category",
+        "fill_suffix",
+        "descriptor",
+        "person_name"
+      ],
+      "coherences": [
+        0.2984,
+        0.2115,
+        0.3366,
+        0.2542
+      ]
+    }
+  },
+  {
+    "id": "gen-f52bb1e0",
+    "groups": [
+      {
+        "level": 0,
+        "color": "yellow",
+        "hex": "#F9DF6D",
+        "theme": "PARTS OF A WEBSITE",
+        "members": [
+          "BANNER",
+          "HEADER",
+          "MENU",
+          "SIDE"
+        ],
+        "theme_type": "descriptor",
+        "coherence": 0.3307
+      },
+      {
+        "level": 1,
+        "color": "green",
+        "hex": "#A0C35A",
+        "theme": "WAYS TO VOCALIZE MUSICALLY PLUS A LETTER",
+        "members": [
+          "HUMP",
+          "WRAP",
+          "SINGE",
+          "WHISTLER"
+        ],
+        "theme_type": "descriptor",
+        "coherence": 0.3452
+      },
+      {
+        "level": 2,
+        "color": "blue",
+        "hex": "#B0C4EF",
+        "theme": "MOVIE SUMMARY INFO",
+        "members": [
+          "ACTOR",
+          "GENRE",
+          "PLOT",
+          "TITLE"
+        ],
+        "theme_type": "category",
+        "coherence": 0.2861
+      },
+      {
+        "level": 3,
+        "color": "purple",
+        "hex": "#BA81C5",
+        "theme": "___ BIRD",
+        "members": [
+          "BIG",
+          "LARRY",
+          "LADY",
+          "SUE"
+        ],
+        "theme_type": "fill_prefix",
+        "coherence": 0.2939
+      }
+    ],
+    "words_shuffled": [
+      "WHISTLER",
+      "GENRE",
+      "LADY",
+      "WRAP",
+      "SINGE",
+      "SIDE",
+      "HEADER",
+      "ACTOR",
+      "MENU",
+      "TITLE",
+      "SUE",
+      "HUMP",
+      "BANNER",
+      "LARRY",
+      "PLOT",
+      "BIG"
+    ],
+    "red_herrings": [],
+    "meta": {
+      "combos_evaluated": 15,
+      "assembly_score": 38.1642,
+      "pool_size": 6,
+      "theme_types": [
+        "descriptor",
+        "category",
+        "fill_suffix",
+        "descriptor"
+      ],
+      "coherences": [
+        0.3452,
+        0.2861,
+        0.2939,
+        0.3307
+      ]
+    }
+  },
+  {
+    "id": "gen-769f55c0",
+    "groups": [
+      {
+        "level": 0,
+        "color": "yellow",
+        "hex": "#F9DF6D",
+        "theme": "PARTS OF A BOOK",
+        "members": [
+          "COVER",
+          "JACKET",
+          "HEAD",
+          "SPINE"
+        ],
+        "theme_type": "descriptor",
+        "coherence": 0.3175
+      },
+      {
+        "level": 1,
+        "color": "green",
+        "hex": "#A0C35A",
+        "theme": "COLORS MINUS LAST LETTER",
+        "members": [
+          "BROW",
+          "CYA",
+          "PIN",
+          "WHIT"
+        ],
+        "theme_type": "category",
+        "coherence": 0.2415
+      },
+      {
+        "level": 2,
+        "color": "blue",
+        "hex": "#B0C4EF",
+        "theme": "PARTS OF FRUIT YOU MIGHT NOT EAT",
+        "members": [
+          "CORE",
+          "RINDS",
+          "SEED",
+          "STEM"
+        ],
+        "theme_type": "descriptor",
+        "coherence": 0.3057
+      },
+      {
+        "level": 3,
+        "color": "purple",
+        "hex": "#BA81C5",
+        "theme": "ROCK ___",
+        "members": [
+          "CANDY",
+          "LOBSTER",
+          "MUSIC",
+          "SALT"
+        ],
+        "theme_type": "fill_suffix",
+        "coherence": 0.3205
+      }
+    ],
+    "words_shuffled": [
+      "SPINE",
+      "CYA",
+      "LOBSTER",
+      "JACKET",
+      "CANDY",
+      "HEAD",
+      "PIN",
+      "RINDS",
+      "WHIT",
+      "BROW",
+      "SEED",
+      "MUSIC",
+      "STEM",
+      "SALT",
+      "COVER",
+      "CORE"
+    ],
+    "red_herrings": [],
+    "meta": {
+      "combos_evaluated": 15,
+      "assembly_score": 31.9033,
+      "pool_size": 6,
+      "theme_types": [
+        "fill_suffix",
+        "category",
+        "descriptor",
+        "descriptor"
+      ],
+      "coherences": [
+        0.3205,
+        0.2415,
+        0.3175,
+        0.3057
+      ]
+    }
+  },
+  {
+    "id": "gen-a31eef1c",
+    "groups": [
+      {
+        "level": 0,
+        "color": "yellow",
+        "hex": "#F9DF6D",
+        "theme": "WAYS TO UNLOCK A DEVICE",
+        "members": [
+          "FACED",
+          "FINGERPRINT",
+          "PASSWORD",
+          "PIN"
+        ],
+        "theme_type": "descriptor",
+        "coherence": 0.2994
+      },
+      {
+        "level": 1,
+        "color": "green",
+        "hex": "#A0C35A",
+        "theme": "PALM ___",
+        "members": [
+          "BEACH",
+          "READING",
+          "SUNDAY",
+          "TREE"
+        ],
+        "theme_type": "fill_suffix",
+        "coherence": 0.2803
+      },
+      {
+        "level": 2,
+        "color": "blue",
+        "hex": "#B0C4EF",
+        "theme": "RESTAURANT SEATING OPTIONS",
+        "members": [
+          "BAR",
+          "BOOTH",
+          "COUNTER",
+          "ROWS"
+        ],
+        "theme_type": "category",
+        "coherence": 0.2887
+      },
+      {
+        "level": 3,
+        "color": "purple",
+        "hex": "#BA81C5",
+        "theme": "___ LEAGUE",
+        "members": [
+          "OTTER",
+          "JUSTICE",
+          "LITTLE",
+          "PREMIER"
+        ],
+        "theme_type": "fill_prefix",
+        "coherence": 0.2884
+      }
+    ],
+    "words_shuffled": [
+      "PASSWORD",
+      "ROWS",
+      "JUSTICE",
+      "BOOTH",
+      "TREE",
+      "FACED",
+      "PREMIER",
+      "SUNDAY",
+      "LITTLE",
+      "OTTER",
+      "READING",
+      "COUNTER",
+      "BAR",
+      "FINGERPRINT",
+      "PIN",
+      "BEACH"
+    ],
+    "red_herrings": [],
+    "meta": {
+      "combos_evaluated": 15,
+      "assembly_score": 35.2639,
+      "pool_size": 6,
+      "theme_types": [
+        "fill_suffix",
+        "category",
+        "fill_suffix",
+        "descriptor"
+      ],
+      "coherences": [
+        0.2803,
+        0.2887,
+        0.2884,
+        0.2994
+      ]
+    }
+  },
+  {
+    "id": "gen-983afec2",
+    "groups": [
+      {
+        "level": 0,
+        "color": "yellow",
+        "hex": "#F9DF6D",
+        "theme": "CUT THE ___",
+        "members": [
+          "CHEESE",
+          "CORD",
+          "DECK",
+          "SAUCE"
+        ],
+        "theme_type": "fill_suffix",
+        "coherence": 0.3227
+      },
+      {
+        "level": 1,
+        "color": "green",
+        "hex": "#A0C35A",
+        "theme": "GYMNASTICS APPARATUS",
+        "members": [
+          "SLIDE",
+          "HORSE",
+          "RING",
+          "VAULT"
+        ],
+        "theme_type": "category",
+        "coherence": 0.2948
+      },
+      {
+        "level": 2,
+        "color": "blue",
+        "hex": "#B0C4EF",
+        "theme": "WAYS TO ATTRACT FISH",
+        "members": [
+          "BAIT",
+          "CHUM",
+          "FLY",
+          "REEL"
+        ],
+        "theme_type": "descriptor",
+        "coherence": 0.3617
+      },
+      {
+        "level": 3,
+        "color": "purple",
+        "hex": "#BA81C5",
+        "theme": "___ CODE",
+        "members": [
+          "DRESS",
+          "HEALTH",
+          "SECRET",
+          "ZIPPER"
+        ],
+        "theme_type": "fill_prefix",
+        "coherence": 0.2853
+      }
+    ],
+    "words_shuffled": [
+      "SLIDE",
+      "HORSE",
+      "SECRET",
+      "RING",
+      "CHEESE",
+      "ZIPPER",
+      "BAIT",
+      "REEL",
+      "FLY",
+      "VAULT",
+      "DECK",
+      "DRESS",
+      "SAUCE",
+      "CHUM",
+      "HEALTH",
+      "CORD"
+    ],
+    "red_herrings": [],
+    "meta": {
+      "combos_evaluated": 15,
+      "assembly_score": 41.8937,
+      "pool_size": 6,
+      "theme_types": [
+        "fill_suffix",
+        "fill_suffix",
+        "descriptor",
+        "category"
+      ],
+      "coherences": [
+        0.2853,
+        0.3227,
+        0.3617,
+        0.2948
+      ]
+    }
+  },
+  {
+    "id": "gen-215b8ff0",
+    "groups": [
+      {
+        "level": 0,
+        "color": "yellow",
+        "hex": "#F9DF6D",
+        "theme": "ENERGY FOR AN ELECTRONIC DEVICE",
+        "members": [
+          "BATTERY",
+          "CHARGE",
+          "JUICE",
+          "POWER"
+        ],
+        "theme_type": "category",
+        "coherence": 0.3626
+      },
+      {
+        "level": 1,
+        "color": "green",
+        "hex": "#A0C35A",
+        "theme": "THINGS A DEFENSIVE FOOTBALL PLAYER DOES",
+        "members": [
+          "BLITZ",
+          "BLOCK",
+          "BAG",
+          "TACKLE"
+        ],
+        "theme_type": "descriptor",
+        "coherence": 0.3585
+      },
+      {
+        "level": 2,
+        "color": "blue",
+        "hex": "#B0C4EF",
+        "theme": "WORDS ON A RESTAURANT RECEIPT",
+        "members": [
+          "PAY",
+          "TIP",
+          "TOTAL",
+          "SIGNATURE"
+        ],
+        "theme_type": "descriptor",
+        "coherence": 0.2944
+      },
+      {
+        "level": 3,
+        "color": "purple",
+        "hex": "#BA81C5",
+        "theme": "___ BEAR",
+        "members": [
+          "BOO-BOO",
+          "BROWN",
+          "HONEYBEE",
+          "TEDDY"
+        ],
+        "theme_type": "fill_prefix",
+        "coherence": 0.2125
+      }
+    ],
+    "words_shuffled": [
+      "JUICE",
+      "TOTAL",
+      "TEDDY",
+      "TACKLE",
+      "TIP",
+      "BATTERY",
+      "CHARGE",
+      "BROWN",
+      "BLOCK",
+      "SIGNATURE",
+      "POWER",
+      "HONEYBEE",
+      "PAY",
+      "BOO-BOO",
+      "BLITZ",
+      "BAG"
+    ],
+    "red_herrings": [],
+    "meta": {
+      "combos_evaluated": 15,
+      "assembly_score": 36.5002,
+      "pool_size": 6,
+      "theme_types": [
+        "descriptor",
+        "category",
+        "descriptor",
+        "fill_suffix"
+      ],
+      "coherences": [
+        0.2944,
+        0.3626,
+        0.3585,
+        0.2125
+      ]
+    }
+  },
+  {
+    "id": "gen-55c1f76b",
+    "groups": [
+      {
+        "level": 0,
+        "color": "yellow",
+        "hex": "#F9DF6D",
+        "theme": "FISH",
+        "members": [
+          "BASS",
+          "FLUE",
+          "PERCH",
+          "PIKE"
+        ],
+        "theme_type": "category",
+        "coherence": 0.3433
+      },
+      {
+        "level": 1,
+        "color": "green",
+        "hex": "#A0C35A",
+        "theme": "PARTS OF A SHOE",
+        "members": [
+          "HEEL",
+          "TOE",
+          "TONGUE",
+          "UPPER"
+        ],
+        "theme_type": "descriptor",
+        "coherence": 0.4225
+      },
+      {
+        "level": 2,
+        "color": "blue",
+        "hex": "#B0C4EF",
+        "theme": "KINDS OF TENNIS COURTS",
+        "members": [
+          "CARPET",
+          "CLAY",
+          "LAWN",
+          "HARD"
+        ],
+        "theme_type": "descriptor",
+        "coherence": 0.3053
+      },
+      {
+        "level": 3,
+        "color": "purple",
+        "hex": "#BA81C5",
+        "theme": "CLUB ___",
+        "members": [
+          "MED",
+          "MUSICAL",
+          "SANDWICH",
+          "SODA"
+        ],
+        "theme_type": "fill_suffix",
+        "coherence": 0.2909
+      }
+    ],
+    "words_shuffled": [
+      "CLAY",
+      "PIKE",
+      "PERCH",
+      "SANDWICH",
+      "CARPET",
+      "MED",
+      "HEEL",
+      "FLUE",
+      "TONGUE",
+      "LAWN",
+      "UPPER",
+      "HARD",
+      "MUSICAL",
+      "SODA",
+      "BASS",
+      "TOE"
+    ],
+    "red_herrings": [],
+    "meta": {
+      "combos_evaluated": 15,
+      "assembly_score": 35.997,
+      "pool_size": 6,
+      "theme_types": [
+        "descriptor",
+        "fill_suffix",
+        "descriptor",
+        "category"
+      ],
+      "coherences": [
+        0.3053,
+        0.2909,
+        0.4225,
+        0.3433
+      ]
+    }
+  },
+  {
+    "id": "gen-ff2a6e49",
+    "groups": [
+      {
+        "level": 0,
+        "color": "yellow",
+        "hex": "#F9DF6D",
+        "theme": "BIRD SOUNDS",
+        "members": [
+          "CAW",
+          "CHIRP",
+          "CLUCK",
+          "TWEET"
+        ],
+        "theme_type": "category",
+        "coherence": 0.2517
+      },
+      {
+        "level": 1,
+        "color": "green",
+        "hex": "#A0C35A",
+        "theme": "PASS THE ___",
+        "members": [
+          "BARS",
+          "BUCK",
+          "TIME",
+          "TORCH"
+        ],
+        "theme_type": "fill_suffix",
+        "coherence": 0.2857
+      },
+      {
+        "level": 2,
+        "color": "blue",
+        "hex": "#B0C4EF",
+        "theme": "THINGS YOU CAN DO WITH A FOOTBALL",
+        "members": [
+          "PASS",
+          "FUMBLE",
+          "SNAP",
+          "SPIKE"
+        ],
+        "theme_type": "descriptor",
+        "coherence": 0.3018
+      },
+      {
+        "level": 3,
+        "color": "purple",
+        "hex": "#BA81C5",
+        "theme": "___ CHEESE",
+        "members": [
+          "COTTAGE",
+          "CREAM",
+          "GOAT",
+          "STRINGY"
+        ],
+        "theme_type": "fill_prefix",
+        "coherence": 0.3199
+      }
+    ],
+    "words_shuffled": [
+      "TORCH",
+      "SNAP",
+      "CAW",
+      "FUMBLE",
+      "BUCK",
+      "CHIRP",
+      "TIME",
+      "STRINGY",
+      "CLUCK",
+      "PASS",
+      "SPIKE",
+      "COTTAGE",
+      "CREAM",
+      "GOAT",
+      "TWEET",
+      "BARS"
+    ],
+    "red_herrings": [],
+    "meta": {
+      "combos_evaluated": 15,
+      "assembly_score": 33.772,
+      "pool_size": 6,
+      "theme_types": [
+        "fill_suffix",
+        "fill_suffix",
+        "category",
+        "descriptor"
+      ],
+      "coherences": [
+        0.3199,
+        0.2857,
+        0.2517,
+        0.3018
+      ]
+    }
+  },
+  {
+    "id": "gen-392c0fa2",
+    "groups": [
+      {
+        "level": 0,
+        "color": "yellow",
+        "hex": "#F9DF6D",
+        "theme": "PARTS OF A TREE",
+        "members": [
+          "BRANCH",
+          "LEAF",
+          "ROOT",
+          "TRUNK"
+        ],
+        "theme_type": "descriptor",
+        "coherence": 0.3583
+      },
+      {
+        "level": 1,
+        "color": "green",
+        "hex": "#A0C35A",
+        "theme": "NICKNAME",
+        "members": [
+          "DESIGNATION",
+          "HAND",
+          "MONIKER",
+          "SOBRIQUET"
+        ],
+        "theme_type": "category",
+        "coherence": 0.3071
+      },
+      {
+        "level": 2,
+        "color": "blue",
+        "hex": "#B0C4EF",
+        "theme": "THINGS USED IN GOLF",
+        "members": [
+          "3 BALL",
+          "DRIVER",
+          "GLOVE",
+          "TEE"
+        ],
+        "theme_type": "descriptor",
+        "coherence": 0.2741
+      },
+      {
+        "level": 3,
+        "color": "purple",
+        "hex": "#BA81C5",
+        "theme": "___ OPERA",
+        "members": [
+          "COMIC",
+          "MET",
+          "ROCK",
+          "SOAP"
+        ],
+        "theme_type": "fill_prefix",
+        "coherence": 0.2588
+      }
+    ],
+    "words_shuffled": [
+      "CARGO",
+      "DESIGNATION",
+      "COMIC",
+      "ROOT",
+      "LEAF",
+      "HAND",
+      "DRIVER",
+      "BRANCH",
+      "SOBRIQUET",
+      "ROCK",
+      "TEE",
+      "MET",
+      "GLOVE",
+      "3 BALL",
+      "MONIKER",
+      "SOAP"
+    ],
+    "red_herrings": [],
+    "meta": {
+      "combos_evaluated": 15,
+      "assembly_score": 32.8077,
+      "pool_size": 6,
+      "theme_types": [
+        "category",
+        "descriptor",
+        "fill_suffix",
+        "descriptor"
+      ],
+      "coherences": [
+        0.3071,
+        0.2741,
+        0.2588,
+        0.3583
+      ]
+    }
+  },
+  {
+    "id": "gen-83364802",
+    "groups": [
+      {
+        "level": 0,
+        "color": "yellow",
+        "hex": "#F9DF6D",
+        "theme": "PARTS OF A BASKETBALL HOOP",
+        "members": [
+          "BOARD",
+          "NET",
+          "POLE",
+          "RIM"
+        ],
+        "theme_type": "descriptor",
+        "coherence": 0.3426
+      },
+      {
+        "level": 1,
+        "color": "green",
+        "hex": "#A0C35A",
+        "theme": "PARTS OF AN ELECTRIC GUITAR",
+        "members": [
+          "FRET",
+          "PEG",
+          "TRUNK",
+          "STRING"
+        ],
+        "theme_type": "descriptor",
+        "coherence": 0.3168
+      },
+      {
+        "level": 2,
+        "color": "blue",
+        "hex": "#B0C4EF",
+        "theme": "___ FISH THAT AREN\u2019T FISH",
+        "members": [
+          "CRAY",
+          "JELLY",
+          "SILVER",
+          "STAR"
+        ],
+        "theme_type": "fill_prefix",
+        "coherence": 0.2931
+      },
+      {
+        "level": 3,
+        "color": "purple",
+        "hex": "#BA81C5",
+        "theme": "FEATURES OF A CARTOON CUPID",
+        "members": [
+          "ARROW",
+          "BOW",
+          "DIAPER",
+          "WING"
+        ],
+        "theme_type": "category",
+        "coherence": 0.3484
+      }
+    ],
+    "words_shuffled": [
+      "SILVER",
+      "ARROW",
+      "BOW",
+      "POLE",
+      "PEG",
+      "BOARD",
+      "CRAY",
+      "STAR",
+      "STRING",
+      "JELLY",
+      "FRET",
+      "NET",
+      "WING",
+      "TRUNK",
+      "RIM",
+      "DIAPER"
+    ],
+    "red_herrings": [],
+    "meta": {
+      "combos_evaluated": 15,
+      "assembly_score": 34.1446,
+      "pool_size": 6,
+      "theme_types": [
+        "descriptor",
+        "descriptor",
+        "category",
+        "fill_suffix"
+      ],
+      "coherences": [
+        0.3426,
+        0.3168,
+        0.3484,
+        0.2931
+      ]
+    }
+  },
+  {
+    "id": "gen-d5f40e44",
+    "groups": [
+      {
+        "level": 0,
+        "color": "yellow",
+        "hex": "#F9DF6D",
+        "theme": "FLOWER PARTS",
+        "members": [
+          "BUD",
+          "LEAVE",
+          "PETAL",
+          "STALK"
+        ],
+        "theme_type": "category",
+        "coherence": 0.2242
+      },
+      {
+        "level": 1,
+        "color": "green",
+        "hex": "#A0C35A",
+        "theme": "KINDS OF FICTION",
+        "members": [
+          "FAN",
+          "HISTORY",
+          "PULP",
+          "SCIENCE"
+        ],
+        "theme_type": "descriptor",
+        "coherence": 0.3148
+      },
+      {
+        "level": 2,
+        "color": "blue",
+        "hex": "#B0C4EF",
+        "theme": "PARTS OF A SONG",
+        "members": [
+          "BRIDGE",
+          "CHORUS",
+          "HOOK",
+          "HABIT"
+        ],
+        "theme_type": "descriptor",
+        "coherence": 0.2721
+      },
+      {
+        "level": 3,
+        "color": "purple",
+        "hex": "#BA81C5",
+        "theme": "___ CITY NICKNAMES",
+        "members": [
+          "MAGIC",
+          "MOTOR",
+          "SIN",
+          "WINDY"
+        ],
+        "theme_type": "fill_prefix",
+        "coherence": 0.3473
+      }
+    ],
+    "words_shuffled": [
+      "LEAVE",
+      "MAGIC",
+      "SIN",
+      "BRIDGE",
+      "STALK",
+      "MOTOR",
+      "FAN",
+      "HABIT",
+      "HISTORY",
+      "SCIENCE",
+      "HOOK",
+      "BUD",
+      "CHORUS",
+      "PETAL",
+      "PULP",
+      "WINDY"
+    ],
+    "red_herrings": [],
+    "meta": {
+      "combos_evaluated": 15,
+      "assembly_score": 37.6749,
+      "pool_size": 6,
+      "theme_types": [
+        "fill_suffix",
+        "descriptor",
+        "descriptor",
+        "category"
+      ],
+      "coherences": [
+        0.3473,
+        0.2721,
+        0.3148,
+        0.2242
+      ]
+    }
+  },
+  {
+    "id": "gen-4a6cec53",
+    "groups": [
+      {
+        "level": 0,
+        "color": "yellow",
+        "hex": "#F9DF6D",
+        "theme": "SILVER ___",
+        "members": [
+          "FOX",
+          "LINING",
+          "SCREEN",
+          "SPOON"
+        ],
+        "theme_type": "fill_suffix",
+        "coherence": 0.2615
+      },
+      {
+        "level": 1,
+        "color": "green",
+        "hex": "#A0C35A",
+        "theme": "FOOTBALL GEAR",
+        "members": [
+          "CLEATS",
+          "HELMET",
+          "JERSEY",
+          "PAD"
+        ],
+        "theme_type": "category",
+        "coherence": 0.3102
+      },
+      {
+        "level": 2,
+        "color": "blue",
+        "hex": "#B0C4EF",
+        "theme": "WAYS TO SHOW RESPECT",
+        "members": [
+          "BOW",
+          "KNEE",
+          "SALUTE",
+          "STAND"
+        ],
+        "theme_type": "descriptor",
+        "coherence": 0.319
+      },
+      {
+        "level": 3,
+        "color": "purple",
+        "hex": "#BA81C5",
+        "theme": "___ FOOD",
+        "members": [
+          "FAST",
+          "FINGER",
+          "JUNK",
+          "SOUL"
+        ],
+        "theme_type": "fill_prefix",
+        "coherence": 0.2929
+      }
+    ],
+    "words_shuffled": [
+      "BOW",
+      "SPOON",
+      "SCREEN",
+      "HELMET",
+      "JUNK",
+      "FOX",
+      "STAND",
+      "SALUTE",
+      "CLEATS",
+      "FAST",
+      "SOUL",
+      "FINGER",
+      "KNEE",
+      "PAD",
+      "LINING",
+      "JERSEY"
+    ],
+    "red_herrings": [],
+    "meta": {
+      "combos_evaluated": 15,
+      "assembly_score": 34.1902,
+      "pool_size": 6,
+      "theme_types": [
+        "category",
+        "descriptor",
+        "fill_suffix",
+        "fill_suffix"
+      ],
+      "coherences": [
+        0.3102,
+        0.319,
+        0.2929,
+        0.2615
+      ]
+    }
+  },
+  {
+    "id": "gen-fd189d8e",
+    "groups": [
+      {
+        "level": 0,
+        "color": "yellow",
+        "hex": "#F9DF6D",
+        "theme": "COPY___",
+        "members": [
+          "CAT",
+          "STRIKE",
+          "RIGHT",
+          "WRITER"
+        ],
+        "theme_type": "fill_suffix",
+        "coherence": 0.2731
+      },
+      {
+        "level": 1,
+        "color": "green",
+        "hex": "#A0C35A",
+        "theme": "BASEBALL CALLS",
+        "members": [
+          "BALL",
+          "OUT",
+          "SAFE",
+          "HIT"
+        ],
+        "theme_type": "category",
+        "coherence": 0.2957
+      },
+      {
+        "level": 2,
+        "color": "blue",
+        "hex": "#B0C4EF",
+        "theme": "THINGS TO BOOK FOR A VACATION",
+        "members": [
+          "CARS",
+          "FLIGHT",
+          "HOTEL",
+          "TOUR"
+        ],
+        "theme_type": "descriptor",
+        "coherence": 0.3565
+      },
+      {
+        "level": 3,
+        "color": "purple",
+        "hex": "#BA81C5",
+        "theme": "___ KING",
+        "members": [
+          "BURGER",
+          "CALIFORNIA",
+          "LION",
+          "PROM"
+        ],
+        "theme_type": "fill_prefix",
+        "coherence": 0.3404
+      }
+    ],
+    "words_shuffled": [
+      "WRITER",
+      "CAT",
+      "CALIFORNIA",
+      "HIT",
+      "FLIGHT",
+      "SAFE",
+      "BURGER",
+      "RIGHT",
+      "BALL",
+      "CARS",
+      "PASTA",
+      "HOTEL",
+      "PROM",
+      "TOUR",
+      "LION",
+      "OUT"
+    ],
+    "red_herrings": [],
+    "meta": {
+      "combos_evaluated": 15,
+      "assembly_score": 36.1426,
+      "pool_size": 6,
+      "theme_types": [
+        "fill_suffix",
+        "fill_suffix",
+        "descriptor",
+        "category"
+      ],
+      "coherences": [
+        0.2731,
+        0.3404,
+        0.3565,
+        0.2957
+      ]
+    }
+  },
+  {
+    "id": "gen-39bb97e4",
+    "groups": [
+      {
+        "level": 0,
+        "color": "yellow",
+        "hex": "#F9DF6D",
+        "theme": "BEAN ___",
+        "members": [
+          "BAG",
+          "TICKET COUNTER",
+          "DIP",
+          "SPROUT"
+        ],
+        "theme_type": "fill_suffix",
+        "coherence": 0.2021
+      },
+      {
+        "level": 1,
+        "color": "green",
+        "hex": "#A0C35A",
+        "theme": "GREEK MYTHOLOGICAL FIGURES MINUS A LETTER",
+        "members": [
+          "AJA",
+          "WERE",
+          "HER",
+          "HERCULE"
+        ],
+        "theme_type": "category",
+        "coherence": 0.3101
+      },
+      {
+        "level": 2,
+        "color": "blue",
+        "hex": "#B0C4EF",
+        "theme": "KINDS OF GOLF CLUBS",
+        "members": [
+          "STEEL",
+          "PUTTER",
+          "WEDGE",
+          "WOOD"
+        ],
+        "theme_type": "descriptor",
+        "coherence": 0.3735
+      },
+      {
+        "level": 3,
+        "color": "purple",
+        "hex": "#BA81C5",
+        "theme": "___ COMEDY",
+        "members": [
+          "BLACK",
+          "DIVINE",
+          "PROPEL",
+          "SKETCH"
+        ],
+        "theme_type": "fill_prefix",
+        "coherence": 0.2666
+      }
+    ],
+    "words_shuffled": [
+      "WERE",
+      "HER",
+      "BAG",
+      "AJA",
+      "SKETCH",
+      "TICKET COUNTER",
+      "DIVINE",
+      "HERCULE",
+      "PROPEL",
+      "WEDGE",
+      "SPROUT",
+      "STEEL",
+      "PUTTER",
+      "BLACK",
+      "WOOD",
+      "DIP"
+    ],
+    "red_herrings": [],
+    "meta": {
+      "combos_evaluated": 15,
+      "assembly_score": 33.794,
+      "pool_size": 6,
+      "theme_types": [
+        "descriptor",
+        "category",
+        "fill_suffix",
+        "fill_suffix"
+      ],
+      "coherences": [
+        0.3735,
+        0.3101,
+        0.2021,
+        0.2666
+      ]
+    }
+  },
+  {
+    "id": "gen-7a9ca091",
+    "groups": [
+      {
+        "level": 0,
+        "color": "yellow",
+        "hex": "#F9DF6D",
+        "theme": "EAT VORACIOUSLY",
+        "members": [
+          "LOW",
+          "INHALE",
+          "SCARF",
+          "WOLF"
+        ],
+        "theme_type": "category",
+        "coherence": 0.2456
+      },
+      {
+        "level": 1,
+        "color": "green",
+        "hex": "#A0C35A",
+        "theme": "BULL___",
+        "members": [
+          "DOG",
+          "DOZE",
+          "FROG PRINCE",
+          "HORN"
+        ],
+        "theme_type": "fill_suffix",
+        "coherence": 0.2367
+      },
+      {
+        "level": 2,
+        "color": "blue",
+        "hex": "#B0C4EF",
+        "theme": "KINDS OF JEWELRY",
+        "members": [
+          "BANGLE",
+          "CHAIN",
+          "CHARM",
+          "RING"
+        ],
+        "theme_type": "descriptor",
+        "coherence": 0.2638
+      },
+      {
+        "level": 3,
+        "color": "purple",
+        "hex": "#BA81C5",
+        "theme": "___ CAT",
+        "members": [
+          "DOJA",
+          "FAT",
+          "HOME",
+          "JUNGLE"
+        ],
+        "theme_type": "fill_prefix",
+        "coherence": 0.2668
+      }
+    ],
+    "words_shuffled": [
+      "CHARM",
+      "BANGLE",
+      "RING",
+      "CHAIN",
+      "HORN",
+      "DOZE",
+      "WOLF",
+      "INHALE",
+      "DOJA",
+      "FROG PRINCE",
+      "DOG",
+      "JUNGLE",
+      "SCARF",
+      "LOW",
+      "FAT",
+      "HOME"
+    ],
+    "red_herrings": [],
+    "meta": {
+      "combos_evaluated": 15,
+      "assembly_score": 36.3267,
+      "pool_size": 6,
+      "theme_types": [
+        "fill_suffix",
+        "category",
+        "descriptor",
+        "fill_suffix"
+      ],
+      "coherences": [
+        0.2668,
+        0.2456,
+        0.2638,
+        0.2367
+      ]
+    }
+  },
+  {
+    "id": "gen-9f354393",
+    "groups": [
+      {
+        "level": 0,
+        "color": "yellow",
+        "hex": "#F9DF6D",
+        "theme": "THIRD ___",
+        "members": [
+          "EYE",
+          "PARTY",
+          "RAILROAD",
+          "ROCK"
+        ],
+        "theme_type": "fill_suffix",
+        "coherence": 0.2895
+      },
+      {
+        "level": 1,
+        "color": "green",
+        "hex": "#A0C35A",
+        "theme": "PLAY AROUND (WITH)",
+        "members": [
+          "FUTZ",
+          "MESS",
+          "TINKER",
+          "DOLL"
+        ],
+        "theme_type": "category",
+        "coherence": 0.266
+      },
+      {
+        "level": 2,
+        "color": "blue",
+        "hex": "#B0C4EF",
+        "theme": "WORDS REPRESENTED BY THE LETTER \"R\"",
+        "members": [
+          "ARE",
+          "RADIUS",
+          "OPPOSITE",
+          "RIGHT"
+        ],
+        "theme_type": "descriptor",
+        "coherence": 0.2638
+      },
+      {
+        "level": 3,
+        "color": "purple",
+        "hex": "#BA81C5",
+        "theme": "___ MOVIE",
+        "members": [
+          "BUD",
+          "CULT",
+          "DATE",
+          "SILENT"
+        ],
+        "theme_type": "fill_prefix",
+        "coherence": 0.2179
+      }
+    ],
+    "words_shuffled": [
+      "BUD",
+      "SILENT",
+      "OPPOSITE",
+      "PARTY",
+      "RAILROAD",
+      "DOLL",
+      "RADIUS",
+      "EYE",
+      "CULT",
+      "MESS",
+      "ROCK",
+      "DATE",
+      "FUTZ",
+      "TINKER",
+      "RIGHT",
+      "ARE"
+    ],
+    "red_herrings": [],
+    "meta": {
+      "combos_evaluated": 15,
+      "assembly_score": 36.2488,
+      "pool_size": 6,
+      "theme_types": [
+        "fill_suffix",
+        "fill_suffix",
+        "category",
+        "descriptor"
+      ],
+      "coherences": [
+        0.2895,
+        0.2179,
+        0.266,
+        0.2638
+      ]
+    }
+  },
+  {
+    "id": "gen-aa2b2d97",
+    "groups": [
+      {
+        "level": 0,
+        "color": "yellow",
+        "hex": "#F9DF6D",
+        "theme": "WAYS TO SECURE A TV",
+        "members": [
+          "BASE",
+          "BRACKET",
+          "MOUNT",
+          "STANDING"
+        ],
+        "theme_type": "descriptor",
+        "coherence": 0.3339
+      },
+      {
+        "level": 1,
+        "color": "green",
+        "hex": "#A0C35A",
+        "theme": "BITS OF HARDWARE",
+        "members": [
+          "BOLT",
+          "NUTS",
+          "SCREW",
+          "WASHER"
+        ],
+        "theme_type": "category",
+        "coherence": 0.3985
+      },
+      {
+        "level": 2,
+        "color": "blue",
+        "hex": "#B0C4EF",
+        "theme": "\u201cTHE(E) ___\u201d RAPPERS",
+        "members": [
+          "CREATOR",
+          "DUDE",
+          "RAP",
+          "STALLION"
+        ],
+        "theme_type": "fill_suffix",
+        "coherence": 0.2332
+      },
+      {
+        "level": 3,
+        "color": "purple",
+        "hex": "#BA81C5",
+        "theme": "WAYS TO PRESERVE FOOD",
+        "members": [
+          "CAN",
+          "CURE",
+          "DRY",
+          "FREEZING"
+        ],
+        "theme_type": "descriptor",
+        "coherence": 0.2999
+      }
+    ],
+    "words_shuffled": [
+      "BRACKET",
+      "BOLT",
+      "CAN",
+      "DUDE",
+      "CURE",
+      "MOUNT",
+      "NUTS",
+      "BASE",
+      "CREATOR",
+      "FREEZING",
+      "STANDING",
+      "STALLION",
+      "DRY",
+      "WASHER",
+      "SCREW",
+      "RAP"
+    ],
+    "red_herrings": [],
+    "meta": {
+      "combos_evaluated": 15,
+      "assembly_score": 35.9937,
+      "pool_size": 6,
+      "theme_types": [
+        "fill_suffix",
+        "descriptor",
+        "descriptor",
+        "category"
+      ],
+      "coherences": [
+        0.2332,
+        0.3339,
+        0.2999,
+        0.3985
+      ]
+    }
+  },
+  {
+    "id": "gen-16d88c21",
+    "groups": [
+      {
+        "level": 0,
+        "color": "yellow",
+        "hex": "#F9DF6D",
+        "theme": "FASHION DESIGNER'S OUTPUT",
+        "members": [
+          "TRADEMARK",
+          "COLLECTION",
+          "LABEL",
+          "LINE"
+        ],
+        "theme_type": "category",
+        "coherence": 0.32
+      },
+      {
+        "level": 1,
+        "color": "green",
+        "hex": "#A0C35A",
+        "theme": "ELECTRIC ___",
+        "members": [
+          "BLANKET",
+          "EEL",
+          "GUITAR",
+          "SLIDE"
+        ],
+        "theme_type": "fill_suffix",
+        "coherence": 0.2325
+      },
+      {
+        "level": 2,
+        "color": "blue",
+        "hex": "#B0C4EF",
+        "theme": "WORDS MISSPELLED IN NU METAL BAND NAMES",
+        "members": [
+          "BISCUIT",
+          "CORN",
+          "LINCOLN",
+          "STAINED"
+        ],
+        "theme_type": "descriptor",
+        "coherence": 0.2525
+      },
+      {
+        "level": 3,
+        "color": "purple",
+        "hex": "#BA81C5",
+        "theme": "___ MOON",
+        "members": [
+          "COLOR",
+          "HARVEST",
+          "NEW",
+          "SAILOR"
+        ],
+        "theme_type": "fill_prefix",
+        "coherence": 0.2744
+      }
+    ],
+    "words_shuffled": [
+      "TRADEMARK",
+      "STAINED",
+      "BISCUIT",
+      "SLIDE",
+      "COLLECTION",
+      "HARVEST",
+      "EEL",
+      "LABEL",
+      "CORN",
+      "BLANKET",
+      "NEW",
+      "SAILOR",
+      "GUITAR",
+      "LINCOLN",
+      "LINE",
+      "COLOR"
+    ],
+    "red_herrings": [],
+    "meta": {
+      "combos_evaluated": 15,
+      "assembly_score": 35.7401,
+      "pool_size": 6,
+      "theme_types": [
+        "fill_suffix",
+        "fill_suffix",
+        "descriptor",
+        "category"
+      ],
+      "coherences": [
+        0.2325,
+        0.2744,
+        0.2525,
+        0.32
+      ]
+    }
+  },
+  {
+    "id": "gen-2cb198d5",
+    "groups": [
+      {
+        "level": 0,
+        "color": "yellow",
+        "hex": "#F9DF6D",
+        "theme": "BANANA ___",
+        "members": [
+          "BOAT",
+          "BREAD",
+          "SLUG",
+          "SPLIT"
+        ],
+        "theme_type": "fill_suffix",
+        "coherence": 0.2924
+      },
+      {
+        "level": 1,
+        "color": "green",
+        "hex": "#A0C35A",
+        "theme": "PLAY SOME ELECTRIC GUITAR",
+        "members": [
+          "JAM",
+          "NOODLE",
+          "SHRED",
+          "SOLO"
+        ],
+        "theme_type": "category",
+        "coherence": 0.2423
+      },
+      {
+        "level": 2,
+        "color": "blue",
+        "hex": "#B0C4EF",
+        "theme": "WAYS TO GET FOOD",
+        "members": [
+          "FARM",
+          "FISH",
+          "GATHER",
+          "HUNT"
+        ],
+        "theme_type": "descriptor",
+        "coherence": 0.3022
+      },
+      {
+        "level": 3,
+        "color": "purple",
+        "hex": "#BA81C5",
+        "theme": "___ LETTER",
+        "members": [
+          "CHAIN",
+          "COVER",
+          "LOVER",
+          "SCARLET"
+        ],
+        "theme_type": "fill_prefix",
+        "coherence": 0.2826
+      }
+    ],
+    "words_shuffled": [
+      "LOVER",
+      "CHAIN",
+      "SOLO",
+      "FARM",
+      "GATHER",
+      "FISH",
+      "JAM",
+      "SCARLET",
+      "COVER",
+      "BREAD",
+      "SLUG",
+      "HUNT",
+      "SPLIT",
+      "BOAT",
+      "SHRED",
+      "NOODLE"
+    ],
+    "red_herrings": [],
+    "meta": {
+      "combos_evaluated": 5,
+      "assembly_score": 33.7126,
+      "pool_size": 5,
+      "theme_types": [
+        "fill_suffix",
+        "fill_suffix",
+        "category",
+        "descriptor"
+      ],
+      "coherences": [
+        0.2826,
+        0.2924,
+        0.2423,
+        0.3022
+      ]
+    }
+  },
+  {
+    "id": "gen-772b2852",
+    "groups": [
+      {
+        "level": 0,
+        "color": "yellow",
+        "hex": "#F9DF6D",
+        "theme": "RESTAURANT WORKERS",
+        "members": [
+          "BARISTA",
+          "CHEF",
+          "HOST",
+          "SERVER"
+        ],
+        "theme_type": "category",
+        "coherence": 0.3331
+      },
+      {
+        "level": 1,
+        "color": "green",
+        "hex": "#A0C35A",
+        "theme": "CARE FOR A PLANT",
+        "members": [
+          "FERTILIZE",
+          "LIGHT",
+          "PRUNE",
+          "WATER"
+        ],
+        "theme_type": "category",
+        "coherence": 0.2854
+      },
+      {
+        "level": 2,
+        "color": "blue",
+        "hex": "#B0C4EF",
+        "theme": "KINDS OF CHAIN REACTION \"EFFECTS\"",
+        "members": [
+          "BUTTERFLY",
+          "DOMINO",
+          "RIPPLE",
+          "SNOWBALL"
+        ],
+        "theme_type": "descriptor",
+        "coherence": 0.23
+      },
+      {
+        "level": 3,
+        "color": "purple",
+        "hex": "#BA81C5",
+        "theme": "___ BAND",
+        "members": [
+          "BOY",
+          "RUBBER",
+          "TRIBUTE",
+          "WEDDING"
+        ],
+        "theme_type": "fill_prefix",
+        "coherence": 0.2055
+      }
+    ],
+    "words_shuffled": [
+      "PRUNE",
+      "DOMINO",
+      "RUBBER",
+      "FERTILIZE",
+      "CHEF",
+      "BARISTA",
+      "RIPPLE",
+      "SERVER",
+      "WEDDING",
+      "BUTTERFLY",
+      "SNOWBALL",
+      "BOY",
+      "HOST",
+      "LIGHT",
+      "WATER",
+      "TRIBUTE"
+    ],
+    "red_herrings": [],
+    "meta": {
+      "combos_evaluated": 5,
+      "assembly_score": 30.6499,
+      "pool_size": 5,
+      "theme_types": [
+        "category",
+        "category",
+        "fill_suffix",
+        "descriptor"
+      ],
+      "coherences": [
+        0.2854,
+        0.3331,
+        0.2055,
+        0.23
+      ]
+    }
+  },
+  {
+    "id": "gen-cb0ce266",
+    "groups": [
+      {
+        "level": 0,
+        "color": "yellow",
+        "hex": "#F9DF6D",
+        "theme": "JEWELRY",
+        "members": [
+          "ANKLE",
+          "BANGLE",
+          "BROOCH",
+          "PENDANT"
+        ],
+        "theme_type": "category",
+        "coherence": 0.2322
+      },
+      {
+        "level": 1,
+        "color": "green",
+        "hex": "#A0C35A",
+        "theme": "SWEET ___",
+        "members": [
+          "POTATO",
+          "SIXTEEN",
+          "TALK",
+          "TOOTH"
+        ],
+        "theme_type": "fill_suffix",
+        "coherence": 0.2815
+      },
+      {
+        "level": 2,
+        "color": "blue",
+        "hex": "#B0C4EF",
+        "theme": "WAYS TO PREPARE CHEESE",
+        "members": [
+          "CRUMBLE",
+          "MELT",
+          "SHRED",
+          "SLICE"
+        ],
+        "theme_type": "descriptor",
+        "coherence": 0.3722
+      },
+      {
+        "level": 3,
+        "color": "purple",
+        "hex": "#BA81C5",
+        "theme": "___ ANIMAL",
+        "members": [
+          "BALLOON",
+          "PACK",
+          "PARTY",
+          "STUFFED"
+        ],
+        "theme_type": "fill_prefix",
+        "coherence": 0.3667
+      }
+    ],
+    "words_shuffled": [
+      "PARTY",
+      "TOOTH",
+      "ANKLE",
+      "TALK",
+      "STUFFED",
+      "BALLOON",
+      "CRUMBLE",
+      "PACK",
+      "SLICE",
+      "POTATO",
+      "SIXTEEN",
+      "BANGLE",
+      "PENDANT",
+      "SHRED",
+      "BROOCH",
+      "MELT"
+    ],
+    "red_herrings": [],
+    "meta": {
+      "combos_evaluated": 5,
+      "assembly_score": 35.6531,
+      "pool_size": 5,
+      "theme_types": [
+        "category",
+        "descriptor",
+        "fill_suffix",
+        "fill_suffix"
+      ],
+      "coherences": [
+        0.2322,
+        0.3722,
+        0.3667,
+        0.2815
+      ]
+    }
+  },
+  {
+    "id": "gen-ceb64f53",
+    "groups": [
+      {
+        "level": 0,
+        "color": "yellow",
+        "hex": "#F9DF6D",
+        "theme": "TABLE TENNIS NEEDS",
+        "members": [
+          "BALL",
+          "NET",
+          "PADDLE",
+          "ROWS"
+        ],
+        "theme_type": "category",
+        "coherence": 0.301
+      },
+      {
+        "level": 1,
+        "color": "green",
+        "hex": "#A0C35A",
+        "theme": "\u201cFREE ___\u201d",
+        "members": [
+          "BIRD",
+          "FALLIN\u2019",
+          "SOLO",
+          "WILLY"
+        ],
+        "theme_type": "fill_suffix",
+        "coherence": 0.2502
+      },
+      {
+        "level": 2,
+        "color": "blue",
+        "hex": "#B0C4EF",
+        "theme": "WORDS WITH \u201cFRUIT\u201d",
+        "members": [
+          "BREAD",
+          "DRAGON",
+          "JACKED",
+          "PASSION"
+        ],
+        "theme_type": "descriptor",
+        "coherence": 0.2555
+      },
+      {
+        "level": 3,
+        "color": "purple",
+        "hex": "#BA81C5",
+        "theme": "___BOOK (THAT\u2019S NOT A BOOK)",
+        "members": [
+          "FACE",
+          "MAC",
+          "TOURNAMENT",
+          "POCKET"
+        ],
+        "theme_type": "fill_prefix",
+        "coherence": 0.2879
+      }
+    ],
+    "words_shuffled": [
+      "ROWS",
+      "WILLY",
+      "FALLIN\u2019",
+      "BIRD",
+      "POCKET",
+      "JACKED",
+      "PADDLE",
+      "MAC",
+      "FACE",
+      "BALL",
+      "BREAD",
+      "TOURNAMENT",
+      "SOLO",
+      "PASSION",
+      "NET",
+      "DRAGON"
+    ],
+    "red_herrings": [],
+    "meta": {
+      "combos_evaluated": 5,
+      "assembly_score": 31.9601,
+      "pool_size": 5,
+      "theme_types": [
+        "fill_suffix",
+        "fill_suffix",
+        "descriptor",
+        "category"
+      ],
+      "coherences": [
+        0.2879,
+        0.2502,
+        0.2555,
+        0.301
+      ]
+    }
+  }
+]
