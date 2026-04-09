@@ -20,7 +20,6 @@ The project ingests the complete historical archive of NYT Connections puzzles, 
   - [Phase 6 — Validator](#phase-6--validator)
   - [Phase 7 — REST API](#phase-7--rest-api)
   - [Phase 8 — Static Frontend](#phase-8--static-frontend)
-- [Theme Types](#theme-types)
 - [Tech Stack](#tech-stack)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
@@ -279,25 +278,6 @@ A `quality_score` (0.0–1.0) is computed from coherence spread, red herring cou
 - Warm parchment colour scheme with noise texture background
 - DM Serif Display + DM Sans typography
 - API-first with offline fallback puzzle
-
----
-
-## Theme Types
-
-| Type | Example Theme | Example Members |
-|---|---|---|
-| `fill_suffix` | `PAPER ___` | CLIP, TRAIL, TOWEL, TIGER |
-| `fill_prefix` | `___ BALL` | BASE, BASKET, FOOT, SNOW |
-| `category` | `CURRENCIES` | PESO, FRANC, KRONA, DINAR |
-| `descriptor` | `THINGS THAT CAN RUN, ANNOYINGLY` | DYE, MASCARA, NOSE, STOCKINGS |
-| `double_meaning` | `MUSIC TERMS ALSO USED IN BASEBALL` | PITCH, SLIDE, REST, BUNT |
-| `homophone` | `HOMOPHONES OF NUMBERS` | ATE, FOR, WON, TOO |
-| `plus_minus` | `ADD A LETTER TO MAKE AN ANIMAL` | BARE, HOSE, LOIN, MUSE |
-| `rhyme` | `RHYMES WITH "LIGHT"` | NIGHT, RIGHT, BITE, KITE |
-| `person_name` | `ALSO A FIRST NAME` | GRACE, FAITH, JOY, HOPE |
-| `brand` | `ADVERTISING SLOGANS` | SWOOSH, ARCH, TICK, STAR |
-| `hidden_word` | `EACH CONTAINS A BODY PART` | ISLAND, EARNEST, LOPING, SHEEP |
-| `initialism` | `NATO PHONETIC ALPHABET` | ALPHA, BRAVO, CHARLIE, DELTA |
 
 ---
 
